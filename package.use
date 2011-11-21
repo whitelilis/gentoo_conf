@@ -1,0 +1,13 @@
+app-misc/realpath -nls
+dev-lisp/clozurecl doc
+x11-wm/dwm savedconfig xinerama
+x11-libs/wxGTK tiff
+net-misc/curl nss
+media-video/mplayer amr win32codecs mpg123 libmpeg2
+mail-client/thunderbird -dbus
+app-arch/p7zip rar
+app-emulation/wine -win32
+dev-lang/R -openmp -nls
+dev-java/oracle-jdk-bin nsplugin
+dev-util/cscope emacs
+dev-lang/php cgi gd

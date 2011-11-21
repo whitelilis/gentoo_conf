@@ -1,0 +1,55 @@
+# /etc/skel/.bashrc
+#
+# This file is sourced by all *interactive* bash shells on startup,
+# including some apparently interactive shells such as scp and rcp
+# that can't tolerate any output.  So make sure this doesn't display
+# anything or bad things will happen !
+
+
+# Test for an interactive shell.  There is no need to set anything
+# past this point for scp and rcp, and it's important to refrain from
+# outputting anything in those cases.
+if [[ $- != *i* ]] ; then
+	# Shell is non-interactive.  Be done now!
+	return
+fi
+
+
+# Put your fun stuff here.
+
+export XMODIFIERS="@im=fcitx"
+export XIM=fcitx
+export XIM_PROGRAM=fcitx
+export GTK_IM_MODULE=xim
+export QT_IM_MODULE=xim
+export PATH=~/tools:$PATH
+
+export NN='10.100.20.1'
+
+export LC_ALL="zh_CN.UTF-8"
+alias ss='startx'
+alias lsh='ssh -l liuzhe '
+alias con='ssh root@58.68.240.97'
+alias on510='ssh root@10.100.20.1'
+alias test27='ssh root@10.100.20.74'
+alias log60='ssh root@58.68.243.143'
+alias new100='ssh  root@58.68.242.4'
+alias bd="on510  'cat /tmp/diskcheck_result'"
+alias vr='sshpass -p liuzhe ssh liuzhe@192.168.10.39'
+alias xpdf="env LC_ALL=C xpdf" 
+
+
+alias master='sshpass -p rmss9257 ssh root@58.68.240.97'
+alias s1='sshpass -p rmss9257 ssh root@58.68.240.98'
+alias s2='sshpass -p rmss9257 ssh root@58.68.240.99'
+alias s3='sshpass -p rmss9257 ssh root@58.68.240.100'
+
+alias save='/home/wizard/work/hadoop_stat/get_now.sh'
+
+export CLASSPATH=.:/home/wizard/src/hadoop/hadoop-0.20.2/hadoop-0.20.2-core.jar
+
+
+# for screen
+export EDITOR=vi
+alias SWITCH-EDITOR-GUI='export EDITOR=vi' # then just type SWITCH-EDITOR-GUI and editor will be set to GUI
+alias SWITCH-EDITOR-CUI='export EDITOR=vi' # then just type SWITCH-EDITOR-CUI and editor will be set to CUI
