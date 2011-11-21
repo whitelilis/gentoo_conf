@@ -10,8 +10,8 @@
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
 if [[ $- != *i* ]] ; then
-	# Shell is non-interactive.  Be done now!
-	return
+        # Shell is non-interactive.  Be done now!
+        return
 fi
 
 
@@ -29,20 +29,8 @@ export NN='10.100.20.1'
 export LC_ALL="zh_CN.UTF-8"
 alias ss='startx'
 alias lsh='ssh -l liuzhe '
-alias con='ssh root@58.68.240.97'
-alias on510='ssh root@10.100.20.1'
-alias test27='ssh root@10.100.20.74'
-alias log60='ssh root@58.68.243.143'
-alias new100='ssh  root@58.68.242.4'
-alias bd="on510  'cat /tmp/diskcheck_result'"
-alias vr='sshpass -p liuzhe ssh liuzhe@192.168.10.39'
-alias xpdf="env LC_ALL=C xpdf" 
+alias xpdf="env LC_ALL=C xpdf"
 
-
-alias master='sshpass -p rmss9257 ssh root@58.68.240.97'
-alias s1='sshpass -p rmss9257 ssh root@58.68.240.98'
-alias s2='sshpass -p rmss9257 ssh root@58.68.240.99'
-alias s3='sshpass -p rmss9257 ssh root@58.68.240.100'
 
 alias save='/home/wizard/work/hadoop_stat/get_now.sh'
 
