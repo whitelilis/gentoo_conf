@@ -5,4 +5,5 @@
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
 (setf ccl:*default-file-character-encoding* :utf-8) ; for ccl to load utf-8 file
+(setf *print-pretty* t)
 
