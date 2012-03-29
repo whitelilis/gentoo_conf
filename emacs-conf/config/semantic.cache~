@@ -1,0 +1,160 @@
+;; Object config/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "config/"
+  :tables (list 
+   (semanticdb-table "cedet.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("load-file" code nil nil [15 80]) ("semantic-load-enable-guady-code-helpers" code nil nil [604 645]))
+    :file "cedet.el"
+    :pointmax 972
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "all-variables.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("custom-set-variables" code nil nil [1 1286]) ("setq" code nil nil [1288 1374]) ("setq" code nil nil [1375 1473]) ("setq" code nil nil [1475 2132]) ("setq" code nil nil [2134 2173]) ("setq" code nil nil [2175 2212]) ("setq" code nil nil [2213 2276]) ("setq" code nil nil [2277 2340]) ("setq" code nil nil [2341 2397]) ("setq" code nil nil [2399 2459]) ("setq" code nil nil [2460 2481]))
+    :file "all-variables.el"
+    :pointmax 2482
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "zoo.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("ido" include nil nil [238 252]) ("ido-mode" code nil nil [253 265]) ("template" include nil nil [267 286]) ("template-initialize" code nil nil [287 308]) ("add-to-list" code nil nil [470 533]) ("setq" code nil nil [585 615]) ("setq" code nil nil [616 660]) ("setq" code nil nil [677 703]) ("setq" code nil nil [704 764]) ("add-hook" code nil nil [765 805]) ("setq" code nil nil [826 872]) ("setq" code nil nil [873 946]) ("setq" code nil nil [947 995]) ("setq" code nil nil [998 1039]) ("fset" code nil nil [1040 1069]) ("display-time" code nil nil [1070 1084]) ("column-number-mode" code nil nil [1108 1130]) ("transient-mark-mode" code nil nil [1131 1154]) ("show-paren-mode" code nil nil [1155 1174]) ("setq" code nil nil [1265 1302]) ("setq-default" code nil nil [1303 1339]) ("setq" code nil nil [1340 1372]) ("mouse-avoidance-mode" code nil nil [1373 1404]) ("setq" code nil nil [1405 1461]) ("setq" code nil nil [1464 1496]) ("setq" code nil nil [1497 1528]) ("put" code nil nil [1530 1566]) ("put" code nil nil [1567 1604]) ("put" code nil nil [1605 1639]) ("put" code nil nil [1640 1676]) ("put" code nil nil [1677 1720]) ("setq" code nil nil [1723 1747]) ("setq" code nil nil [1749 1777]) ("setq" code nil nil [1778 1804]) ("setq" code nil nil [1805 1831]) ("setq" code nil nil [1832 1860]) ("setq" code nil nil [1861 1913]) ("setq" code nil nil [1914 1940]) ("setq-default" code nil nil [2314 2350]) ("setq" code nil nil [2388 2418]) ("setq" code nil nil [2471 2504]) ("setq" code nil nil [2560 2578]) ("setq" code nil nil [2601 2625]) ("setq-default" code nil nil [2681 2713]) ("when" code nil nil [2715 2914]) ("prefer-coding-system" code nil nil [3161 3190]) ("set-language-environment" code nil nil [3191 3225]) ("setq" code nil nil [3226 3260]) ("set-terminal-coding-system" code nil nil [3261 3296]) ("set-selection-coding-system" code nil nil [3297 3333]) ("set-clipboard-coding-system" code nil nil [3334 3370]) ("gdb-many-windows" variable (:default-value t) nil [3566 3593]) ("global-cwarn-mode" code nil nil [3594 3615]) ("setq" code nil nil [3692 3726]) ("usefullmodes" function nil nil [3944 4157]) ("add-hook" code nil nil [4158 4198]) ("add-hook" code nil nil [4199 4236]) ("add-hook" code nil nil [4237 4276]) ("add-hook" code nil nil [4277 4317]) ("add-hook" code nil nil [4318 4364]) ("add-hook" code nil nil [4394 4434]) ("add-hook" code nil nil [4436 4488]) ("browse-kill-ring" include nil nil [4692 4719]) ("browse-kill-ring-default-keybindings" code nil nil [4720 4758]) ("setq" code nil nil [4824 4860]) ("ctypes" include nil nil [5204 5221]) ("ctypes-auto-parse-mode" code nil nil [5222 5246]) ("javascript-mode" function (:prototype-flag t :user-visible-flag t) nil [5249 5295]) ("mapcar" code nil nil [5296 6089]) ("add-hook" code nil nil [6172 6240]) ("setq" code nil nil [6282 6312]) ("setq" code nil nil [6313 6360]) ("set-default-font" code nil nil [6639 6670]) ("set-face-attribute" code nil nil [6822 6867]) ("server-start" code nil nil [6927 6941]))
+    :file "zoo.el"
+    :pointmax 6966
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "auctex.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("load" code nil nil [1 27]) ("load" code nil nil [28 61]) ("setq" code nil nil [62 84]) ("setq" code nil nil [85 108]) ("add-hook" code nil nil [109 153]) ("add-hook" code nil nil [154 200]) ("add-hook" code nil nil [201 287]) ("setq" code nil nil [288 309]) ("global-set-key" code nil nil [370 429]))
+    :file "auctex.el"
+    :pointmax 430
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "emaxima.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("maxima" function (:prototype-flag t :user-visible-flag t) nil [1 51]) ("maxima-mode" function (:prototype-flag t :user-visible-flag t) nil [52 127]) ("maxima-minor-mode" function (:prototype-flag t :user-visible-flag t) nil [128 205]) ("setq" code nil nil [206 277]))
+    :file "emaxima.el"
+    :pointmax 278
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "gnuplot.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("gnuplot-mode" function (:prototype-flag t :user-visible-flag t) nil [306 363]) ("gnuplot-make-buffer" function (:prototype-flag t :user-visible-flag t) nil [366 441]) ("setq" code nil nil [546 622]))
+    :file "gnuplot.el"
+    :pointmax 863
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "org-mode.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("setq" code nil nil [129 177]) ("add-to-list" code nil nil [179 233]) ("define-key" code nil nil [275 322]) ("define-key" code nil nil [323 366]) ("setq" code nil nil [368 395]) ("setq" code nil nil [421 449]) ("setq" code nil nil [450 497]) ("setq" code nil nil [498 561]) ("setq" code nil nil [562 619]) ("add-hook" code nil nil [620 679]) ("setq" code nil nil [681 1705]) ("setq" code nil nil [1723 1997]) ("appt-activate" code nil nil [2030 2047]) ("setq" code nil nil [2049 2083]) ("add-hook" code nil nil [2085 2123]) ("setq" code nil nil [2143 2174]) ("setq" code nil nil [2175 2196]) ("setq" code nil nil [2197 2228]) ("setq" code nil nil [2251 2289]) ("org-todo-list" code nil nil [2310 2327]) ("delete-other-windows" code nil nil [2328 2350]) ("org-agenda-to-appt" code nil nil [2351 2371]) ("define-key" code nil nil [2374 2437]) ("define-key" code nil nil [2438 2488]) ("define-key" code nil nil [2489 2550]) ("define-key" code nil nil [2551 2593]))
+    :file "org-mode.el"
+    :pointmax 2727
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "mmm.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("mmm-mode" include nil nil [13 32]) ("mmm-auto" include nil nil [33 52]) ("setq" code nil nil [53 82]) ("mmm-add-mode-ext-class" code nil nil [130 176]) ("mmm-add-mode-ext-class" code nil nil [177 227]) ("setq" code nil nil [276 314]) ("mmm-add-classes" code nil nil [557 1007]) ("add-hook" code nil nil [1008 1125]) ("add-to-list" code nil nil [1126 1186]))
+    :file "mmm.el"
+    :pointmax 1187
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "rebindings.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("global-set-key" code nil nil [208 261]) ("global-set-key" code nil nil [301 337]) ("global-set-key" code nil nil [338 378]) ("global-set-key" code nil nil [379 421]) ("global-set-key" code nil nil [422 454]) ("global-set-key" code nil nil [455 489]) ("global-set-key" code nil nil [543 581]) ("global-set-key" code nil nil [582 620]) ("global-set-key" code nil nil [682 729]) ("global-set-key" code nil nil [806 850]) ("global-set-key" code nil nil [851 899]) ("global-set-key" code nil nil [900 950]) \.\.\.)
+    :file "rebindings.el"
+    :pointmax 1816
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "ror.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("rails" include nil nil [1 17]) ("define-key" code nil nil [124 174]) ("define-key" code nil nil [175 241]))
+    :file "ror.el"
+    :pointmax 243
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "color-theme.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("color-theme" include nil nil [1 23]) ("color-theme-initialize" code nil nil [24 48]) ("color-theme-billw" code nil nil [72 91]))
+    :file "color-theme.el"
+    :pointmax 92
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "dict.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("dictionary-search" function (:prototype-flag t :user-visible-flag t) nil [1 98]) ("dictionary-match-words" function (:prototype-flag t :user-visible-flag t) nil [99 217]) ("dictionary-lookup-definition" function (:prototype-flag t :user-visible-flag t) nil [218 319]) ("dictionary" function (:prototype-flag t :user-visible-flag t) nil [320 392]) ("global-set-key" code nil nil [394 457]) ("global-set-key" code nil nil [458 510]) ("global-set-key" code nil nil [511 568]) ("setq" code nil nil [600 634]) ("setq" code nil nil [861 933]))
+    :file "dict.el"
+    :pointmax 934
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "cperl.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("defalias" code nil nil [1 34]) ("add-hook" code nil nil [35 83]) ("n-cperl-mode-hook" function nil nil [84 335]) ("set-face-background" code nil nil [234 281]) ("set-face-background" code nil nil [285 331]))
+    :file "cperl.el"
+    :pointmax 337
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "xref.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(nil)
+    :file "xref.el"
+    :pointmax 76
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "fvwm-mode.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("load" code nil nil [40 58]) ("setq" code nil nil [121 340]))
+    :file "fvwm-mode.el"
+    :pointmax 341
+    )
+   (semanticdb-table "doxymacs.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("doxymacs" include nil nil [22 41]) ("add-hook" code nil nil [42 87]) ("my-doxymacs-font-lock-hook" function nil nil [88 214]) ("add-hook" code nil nil [215 274]))
+    :file "doxymacs.el"
+    :pointmax 275
+    )
+   (semanticdb-table "haskell.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("load" code nil nil [1 27]) ("setq" code nil nil [29 230]) ("haskell-mode" function (:prototype-flag t :user-visible-flag t) nil [231 316]) ("literate-haskell-mode" function (:prototype-flag t :user-visible-flag t) nil [317 420]) ("add-hook" code nil nil [497 545]) ("add-hook" code nil nil [546 602]) ("add-hook" code nil nil [603 658]) ("add-hook" code nil nil [716 776]) ("add-hook" code nil nil [832 883]) ("add-hook" code nil nil [885 1642]) ("flymake" include nil nil [1672 1690]) ("flymake-Haskell-init" function nil nil [1692 1888]) ("flymake-get-Haskell-cmdline" function (:arguments ("source" "base-dir")) nil [1890 2005]) ("push" code nil nil [2007 2114]) ("push" code nil nil [2115 2223]) ("push" code nil nil [2224 2331]) ("credmp/flymake-display-err-minibuf" function (:user-visible-flag t) nil [2718 3544]))
+    :file "haskell.el"
+    :pointmax 3545
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "sourcepair.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("load-file" code nil nil [16 73]) ("setq" code nil nil [74 128]) ("setq" code nil nil [129 205]))
+    :file "sourcepair.el"
+    :pointmax 206
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "webloger.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("weblogger" include nil nil [1 21]) ("setq" code nil nil [22 198]) ("weblogger-select-configuration" code nil nil [199 231]))
+    :file "webloger.el"
+    :pointmax 232
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "antiword.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("add-to-list" code nil nil [1 56]) ("no-word" function nil nil [58 185]))
+    :file "antiword.el"
+    :pointmax 186
+    )
+   (semanticdb-table "slime.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("setq" code nil nil [147 199]) ("slime" include nil nil [391 407]) ("slime-setup" code nil nil [408 477]) ("setq" code nil nil [538 580]) ("setq" code nil nil [581 659]) ("my-indent-or-complete" function (:user-visible-flag t) nil [677 841]) ("define-key" code nil nil [859 918]))
+    :file "slime.el"
+    :pointmax 919
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "cscope.el"
+    :major-mode 'emacs-lisp-mode
+    :tags '(("xcscope" include nil nil [1 19]) ("add-hook" code nil nil [20 69]))
+    :file "cscope.el"
+    :pointmax 70
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0pre4"
+  :semanticdb-version "2.0pre4"
+  )

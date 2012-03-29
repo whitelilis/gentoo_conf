@@ -1,0 +1,108 @@
+README for the DocBook IDE V0.1
+
+This package contains an emacs major mode for editing DocBook documents.
+
+
+Manifest
+--------
+
+README           - This readme file
+ChangeLog        - Summary of changes from previous versions
+dbide-abbrev.el  - Abbreviations for DocBook mode
+dbide-data.el    - Data about DocBook elements and attributes
+dbide-font.el    - Font lock keywords for DocBook documents
+dbide-process.el - Procedures for processing DocBook documents with XSL
+docbookide.el    - Base file for the DocBook major mode
+dot_emacs        - Some things for your .emacs file
+make-regexp.el   - Regular expression package used by dbide-font
+
+
+Features
+--------
+
+- Font lock highlighting for DocBook elements and attributes
+- 'docbook-complete' function for inserting element and attribute names
+- 'docbook-insert-tag' function for inserting matching start- and
+   end-tags
+- Automatic insertion of element content (e.g. firstname and surname
+  in author)
+- Automatic completion of end-tags;
+- Comprehensive abbreviations table to further ease typing;
+
+docbook-mode was tested using NTEmacs 20.6.1
+
+
+Installation
+------------
+
+1. Unzip the distribution.
+
+   This should extract the files listed in the manifest above.
+
+2. Copy the .el files to your emacs site-lisp directory (e.g.,
+   /usr/local/lib/emacs/site-lisp). Or copy them into a subdirectory
+   of your site-lisp directory and add that subdirectory to your
+   load path.
+
+3. Byte compile the .el files using M-x byte-compile-file and
+   supplying the path name of each file.
+
+   If you byte-compiled a previous version of the files, you must
+   byte-compile the new files (or remove the old .elc files) so that
+   autoload loads the correct versions.
+
+4. Add the elisp code in dot_emacs to your .emacs file.
+
+5. If you associate docbook-mode with an extension, it will automatically
+   be loaded when you visit files with that extension. Alternatively,
+   you may use <!-- -*- DocBook -*- --> on the first line of your documents,
+   or use buffer-local variables to associate DocBook mode with your
+   documents.
+
+
+Copyright
+---------
+
+Copyright (C) 2000 Norman Walsh
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+
+Warranty
+--------
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT.  IN NO EVENT SHALL NORMAN WALSH OR ANY OTHER
+CONTRIBUTOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+Credits
+-------
+
+This package is based extensively on Tony Graham's xslide package.
+Attribute all features to Tony, all bugs to me.
+
+
+Contacting the Author
+---------------------
+
+This package is maintained by Norman Walsh, <ndw@nwalsh.com>.
+
+The best way to reach norm is by email.  You will find additional
+contact information at http://nwalsh.com/docbook/xml/
+
+I would be glad to accept bug reports and, especially,
+enhancements.  Use `docbook-submit-bug-report' for bug reports.
+

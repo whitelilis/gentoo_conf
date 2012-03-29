@@ -1,0 +1,4 @@
+;; source pair
+(load-file "sourcepair.elc")
+(setq sourcepair-source-path '( "." "../*" "../src" ))
+(setq sourcepair-header-path '( "." "include" "../include" "../*" "../inc"))

@@ -1,0 +1,2 @@
+(require 'xcscope)
+(add-hook ‘java-mode-hook (function cscope:hook))

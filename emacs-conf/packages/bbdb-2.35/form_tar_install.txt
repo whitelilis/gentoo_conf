@@ -1,0 +1,14 @@
+tar xvf bbdb.tar.tar
+cd bbdb...
+./configure --with-gnus-dir=/usr/share/emacs/22.1/lisp/gnus
+make guns
+
+move lisp dir some where under 'load-path'
+
+optional
+
+cd texinfo && make
+cp bbdb.info /usr/share/info
+cd /usr/share/info
+install-info bbdb.info
+

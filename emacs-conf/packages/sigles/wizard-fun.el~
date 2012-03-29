@@ -1,0 +1,59 @@
+;;; wizard-fun.el ---
+
+;; Copyright 2007 LiuZhe
+;;
+;; Author: whitelilis@gmail.com
+;; Version: $Id: TEMPLATE.el.tpl,v 1.1.1.1 2007/03/10 10:05:55 wizard Exp $
+
+(defun wizard-insert-current-time()
+  "Insert current time."
+  (interactive)
+  (save-excursion)
+  (insert (current-time-string))
+  )
+
+(defun wizard-indent-remember()
+  "Indent remember text format."
+  (interactive)
+  (save-excursion)
+  (beginning-of-buffer)
+  (next-line)
+  (replace-regexp "^" "\t")
+  (mark-whole-buffer)
+  (remember-region)
+  )
+
+(defun wizard-ror-shells()
+  "Ruby on Rails use many shells."
+  (interactive)
+  (save-excursion)
+;;  (shell "command-shell")
+  (shell "ruby-shell")
+;;  (shell "console-shell")
+  (shell "migrate-shell")
+;;  (shell "test-shell")
+  )
+
+(defun wizard-back-upcase()
+  "Move backward word and upcase the current word."
+  (backward-word)
+  (upcase-word)
+)
+(defun wizard-kill-backward-word-or-region(arg)
+  "If region is active, kill region; else kill backward word."
+  (interactive "p")
+  (if (not (c-region-is-active-p))
+      (kill-word (- arg))
+    (kill-region (region-beginning) (region-end))
+    )
+  )
+(defun wizard-new-brace-binding()
+  (interactive)
+  (self-insert-command 1)
+  (newline-and-indent)
+)
+(define-key java-mode-map [({)] 'wizard-new-brace-binding)
+(define-key java-mode-map [(\;)] 'wizard-new-brace-binding)
+
+
+;;; wizard-fun.el ends here

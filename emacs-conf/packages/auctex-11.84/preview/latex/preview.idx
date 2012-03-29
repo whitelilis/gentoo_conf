@@ -1,0 +1,12 @@
+\indexentry{preview={\ttfamily preview} (environment)|usage}{6}
+\indexentry{environments:preview=>{\ttfamily preview}|usage}{6}
+\indexentry{nopreview={\ttfamily nopreview} (environment)|usage}{6}
+\indexentry{environments:nopreview=>{\ttfamily nopreview}|usage}{6}
+\indexentry{PreviewMacro=\verb!*+\PreviewMacro+|usage}{6}
+\indexentry{PreviewMacro*=\verb!*+\PreviewMacro*+|usage}{7}
+\indexentry{PreviewEnvironment=\verb!*+\PreviewEnvironment+|usage}{8}
+\indexentry{PreviewEnvironment*=\verb!*+\PreviewEnvironment*+|usage}{8}
+\indexentry{PreviewSnarfEnvironment=\verb!*+\PreviewSnarfEnvironment+|usage}{8}
+\indexentry{PreviewOpen=\verb!*+\PreviewOpen+|usage}{8}
+\indexentry{PreviewClose=\verb!*+\PreviewClose+|usage}{8}
+\indexentry{ifPreview=\verb!*+\ifPreview+|usage}{8}

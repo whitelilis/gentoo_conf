@@ -1,0 +1,27 @@
+;; my key binding
+(global-set-key [f11] 'hide-subtree)
+(global-set-key [f12] 'show-subtree)
+(global-set-key [f2] 'man)
+(global-set-key [f4] 'planner-create-task-from-buffer)
+(global-set-key [f7] 'flyspell-region)
+(global-set-key [f8] 'compile)
+(global-set-key [f9] 'remember)
+(global-set-key [f10] 'remember-region)
+
+;;(global-set-key [f5] 'browse-kill-ring)
+
+;(global-set-key [(control tab)] 'senator-complete-symbol)
+(global-set-key [(control tab)] 'hippie-expand) ;very good (define the list in ~/emacs-config/conf/var.el)
+(global-set-key [(S-tab)] 'ispell-complete-word)
+(global-set-key [(shift space)] 'set-mark-command)
+
+;; I'd like to use only one key to comment or uncomment region
+;; but the function comment-or-uncomment-region work wrong in C-mode(work right in docbook mode), so I have to use two bindings
+(global-set-key [(control c)(control c)] 'comment-or-uncomment-region)
+;(global-set-key [(control c)(control c)] 'comment-region)
+(global-set-key [(control c)(control v)] 'uncomment-region)
+
+(global-set-key )
+
+;; my functions binding to C-c C-w \some; for wizard or whitelilis or wqy or so on
+(global-set-key [(control c)(control w) t] 'wizard-insert-current-time)

@@ -1,0 +1,73 @@
+(custom-set-variables
+ '(debug-on-error t)
+ '(abbrev-mode t)
+ '(allout-mode t)
+ '(auto-fill-mode t)
+ '(default-fill-column 78)
+
+ ;; cut the line but insert nothing ;; when in auto-fill-mode add \n automaticly
+ '(truncate-partial-width-windows nil)
+ '(auto-image-file-mode t)
+ '(calendar-date-display-form (quote (year "-" month "-" day)))
+ '(calendar-today-marker (quote calendar-today-face))
+ '(display-time-24hr-format t)
+ '(display-time-format "%Y-%m-%d %R")
+ '(ediff-diff-options "-w")
+ '(ediff-grab-mouse nil)
+ '(font-lock-maximum-size nil)
+ '(font-lock-verbose nil)
+ '(global-font-lock-mode t)
+ '(global-hi-lock-mode t)
+ '(global-hl-line-mode t)
+ '(mark-diary-entries-in-calendar t)
+ '(mark-holidays-in-calendar t)
+ '(menu-bar-mode nil)
+ '(tool-bar-mode nil)
+ '(scroll-bar-mode nil)
+ '(save-abbrevs t)
+ '(show-paren-match-face ((((class color)) (:background "light green"))))
+ '(show-paren-mismatch-face ((((class color)) (:foreground "white" :background "red"))))
+ '(size-indication-mode t)
+ '(today-visible-calendar-hook (quote (calendar-mark-today)))
+ '(minibuffer-electric-default-mode t)
+ '(debug-on-error-initial t)
+ '(default-tab-width 8)
+ '(rails-ws:default-server-type "webrick")
+ ;; '(initial-frame-alist '((top . 0) (left . 0) (width . 99) (height . 47))) ;maximium
+ )
+
+(setq chinese-calendar-celestial-stem
+      ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"])
+(setq chinese-calendar-terrestrial-branch
+      ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"])
+
+(setq hippie-expand-try-functions-list
+      '(
+        try-expand-dabbrev
+        try-expand-dabbrev-visible
+        try-expand-dabbrev-all-buffers
+        try-expand-dabbrev-from-kill
+        try-expand-list
+        try-expand-list-all-buffers
+        try-expand-line-all-buffers
+        try-expand-line
+        try-complete-file-name-partially
+        try-complete-file-name
+        try-expand-all-abbrevs
+        try-complete-lisp-symbol-partially
+        try-complete-lisp-symbol
+        try-expand-whole-kill
+        senator-try-expand-semantic
+;;;         senator-complete-symbol
+;;;         semantic-ia-complete-symbol
+        ispell-complete-word))
+
+(setq mail-user-agent 'gnus-user-agent)
+
+(setq gnus-inhibit-startup-message t)
+(setq mail-signature-file "~/emacs-conf/other-files/signature")
+(setq gnus-signature-file "~/emacs-conf/other-files/signature")
+(setq gnus-init-file "~/emacs-conf/other-files/gnus.el")
+
+(setq abbrev-file-name "~/emacs-conf/other-files/abbrev.el")
+(setq save-abbrevs t)

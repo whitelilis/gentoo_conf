@@ -1,0 +1,4 @@
+(autoload 'maxima "maxima" "Maxima interaction" t)
+(autoload 'maxima-mode "maxima" "Major mode for writing Maxima programs" t)
+(autoload 'maxima-minor-mode "maxima" "Minor mode for working with Maxima" t)
+(setq auto-mode-alist (cons '("\\.max" . maxima-mode) auto-mode-alist))
