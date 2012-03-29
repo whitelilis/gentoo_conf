@@ -242,6 +242,7 @@ myFocusFollowsMouse = True
 -- > myLogHook = dynamicLogDzen
 --
 myLogHook = return ()
+-- myLogHook = takeTopFocus
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -253,7 +254,7 @@ myLogHook = return ()
 -- By default, do nothing.
 {-myStartupHook = return ()-}
 myStartupHook = do
-        {-setWMName "LG3D"-}
+        setWMName "LG3D"
         spawn "xpmroot ~/.fvwm/back.png"
         spawn "conky"
         --spawn "fcitx"--
@@ -294,7 +295,7 @@ main = xmonad defaults
 --
 defaults = defaultConfig {
       -- for java guis
-         {-startupHook = setWMName "LG3D",         -}
+      --	startupHook = ewmhDesktopsStartup >> setWMName "LG3D",
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,

@@ -11,3 +11,6 @@ dev-lang/R -openmp -nls
 dev-java/oracle-jdk-bin nsplugin
 dev-util/cscope emacs
 dev-lang/php cgi gd
+dev-vcs/git bash-completion%
+app-text/ghostscript-gpl cups
+dev-vcs/subversion -dso perl
