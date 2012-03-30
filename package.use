@@ -14,3 +14,4 @@ dev-lang/php cgi gd
 dev-vcs/git bash-completion%
 app-text/ghostscript-gpl cups
 dev-vcs/subversion -dso perl
+app-editors/xemacs athena xface xim
