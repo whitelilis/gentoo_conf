@@ -10,10 +10,12 @@
 # past this point for scp and rcp, and it's important to refrain from
 # outputting anything in those cases.
 if [[ $- != *i* ]] ; then
-        # Shell is non-interactive.  Be done now!
-        return
+	# Shell is non-interactive.  Be done now!
+	return
 fi
 
+
+source ~/git-completion.bash
 
 # Put your fun stuff here.
 
@@ -22,22 +24,29 @@ export XIM=fcitx
 export XIM_PROGRAM=fcitx
 export GTK_IM_MODULE=xim
 export QT_IM_MODULE=xim
-export PATH=~/tools:$PATH
+export PATH="/opt/android-sdk-update-manager/platform-tools:~/tools:$PATH"
 
-export NN='10.100.20.1'
 
 export LC_ALL="zh_CN.UTF-8"
 alias ss='startx'
-alias lsh='ssh -l liuzhe '
-alias xpdf="env LC_ALL=C xpdf"
+#alias xpdf="env LC_ALL=C xpdf" 
 
-
-alias save='/home/wizard/work/hadoop_stat/get_now.sh'
 
 export CLASSPATH=.:/home/wizard/src/hadoop/hadoop-0.20.2/hadoop-0.20.2-core.jar
-
 
 # for screen
 export EDITOR=vi
 alias SWITCH-EDITOR-GUI='export EDITOR=vi' # then just type SWITCH-EDITOR-GUI and editor will be set to GUI
 alias SWITCH-EDITOR-CUI='export EDITOR=vi' # then just type SWITCH-EDITOR-CUI and editor will be set to CUI
+
+d (){
+	pdsh -R exec -u 17 -f 100 -w ^$@
+}
+
+alias tda='java -jar /home/wizard/src/tda/tda.jar'
+alias work='mplayer ~/music/secret_garden/*.mp3'
+alias R='LC_ALL=C R'
+
+
+###### private #####
+source ~/.privaterc

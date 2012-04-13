@@ -1,0 +1,67 @@
+URxvt.preeditType:Root
+
+URxvt.cursorBlink:True
+URxvt.saveLines:30000
+!!边框
+URxvt.borderLess:      False
+!!字体设置
+Xft.dpi:96
+URxvt.font:xft:文泉驿等宽微米黑:size=12
+URxvt.boldfont:xft:文泉驿等宽微米黑:size=12
+
+! RXVT-unicode setting
+! URxvt.geometry:             80x36+80+80
+URxvt.background:           black
+!URxvt.background:           white
+URxvt.foreground:           yellow
+!URxvt.foreground:           darkgreen
+URxvt.scrollBar:            False
+URxvt.scrollstyle:          next
+! Use shift+pageup/down to scroll in screen
+URxvt.secondaryScroll:  True
+
+!set the artificial transparency of the v.t.
+!URxvt.inheritPixmap:        True
+URxvt.tintColor:            grey
+URxvt.shading:              20
+urxvt.urgentOnBell: 	    True
+
+
+!redefine color to use tango theme in vim
+!Black
+URxvt.color0:           #000000
+URxvt.color8:           #555753
+!Red
+URxvt.color1:           #CC0000
+URxvt.color9:           #EF2929
+!Green
+URxvt.color2:           #4E9A06
+URxvt.color10:          #8AE234
+!Yellow
+URxvt.color3:           #C4A000
+URxvt.color11:          #FCE94F
+!Blue
+URxvt.color4:           #3465A4
+URxvt.color12:          #729FCF
+!Magenta
+URxvt.color5:           #75507B
+URxvt.color13:          #AD7FA8
+!Cyan
+URxvt.color6:           #06989A
+URxvt.color14:          #34E2E2
+!White
+URxvt.color7:           #D3D7CF
+URxvt.color15:          #EEEEEC
+
+URxvt.inputMethod:fcitx
+URxvt.Depth:32
+! URxvt.imFont: -wenquanyi-wenquanyi bitmap song-medium-i-normal--0-0-75-75-p-0-iso10646-1
+
+!!URxvt.cursorColor:white
+
+!!firefox.font:-ISAS-Fangsong ti-Medium-R-Normal--16-160-72-72-c-160-GB2312.1980-0
+xpdf.initialZoom:width
+xpdf.chineseCNSFont: -*-*-medium-r-normal-*-%s-*-*-*-*-*-big5-0
+xpdf.chineseGBFont: -*-*-medium-r-normal-*-%s-*-*-*-*-*-gb2312.1980-0
+
+XDvi.shrinkFactor:6
