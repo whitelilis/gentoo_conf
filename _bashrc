@@ -43,6 +43,10 @@ d (){
 	pdsh -R exec -u 17 -f 100 -w ^$@
 }
 
+pdf (){
+	evince $@ 2>/dev/null
+}
+
 alias tda='java -jar /home/wizard/src/tda/tda.jar'
 alias work='mplayer ~/music/secret_garden/*.mp3'
 alias R='LC_ALL=C R'
