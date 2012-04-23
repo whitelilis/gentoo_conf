@@ -1,0 +1,44 @@
+nethack               on
+autodetach            on              # Standard: on
+crlf                  off             # Standard: off
+deflogin              off             # Standard: on
+hardcopy_append       on              # Standard: off
+startup_message       off             # Standard: on
+vbell                 off
+defscrollback         1000            # Standard: 100
+silencewait           15              # Standard: 30
+#shell                 tcsh
+#activity              "activity in %n (%t) [%w:%s]~"
+#bell                  "%C -> %n%f %t activity!"
+#vbell_msg             ""
+
+# ===============================================================
+# TERMCAP and TERMINFO
+# ===============================================================
+
+
+#  termcapinfo xterm     ti@:te@
+#
+# Matthias Kopfermann <matthias_kopfermann@gmx.de> [020222]:
+# make the cursor show up in red:
+#  termcapinfo xterm "ve=\E[?25h\E[?17;0;64c"
+
+#  termcapinfo linux "ve=\E[?25h\E[?17;0;64c"
+#termcapinfo  xterm Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
+
+# ===========================================
+#       HARDSTATUS
+# ===========================================
+
+#hardstatus alwayslastline "%{=b}%{G} Screen(s): %{m}%w %=%{kG}%C%A  %d, %M/%d/%Y "
+#hardstatus alwayslastline "%{+b kr}host: %{kw}%H%{kg} %c - %D %d.%m.%Y %{kr}(load: %l) %-26=%1`"
+
+startup_message off
+escape ^Zz
+defscrollback 400000
+#hardstatus on
+#hardstatus lastline
+#hardstatus string "%{.bW}%-w%{.rY}%n %t%{-}%+w %=%{..G} %H(%l) %{..Y} %Y/%m/%d %c:%s "
+#hardstatus string "%{.kw}%-w%{.kY}%n %t%{.kw}%+w %=%{.kG}%H %{.kC}%c:%s %{.kR}%D %{.kY}%M.%d"
+
+caption always "%{= kw}%-w%{= kG}%{+b}[%n %t]%{-b}%{= kw}%+w %=%d %M %0c %{g}%H%{-}" 

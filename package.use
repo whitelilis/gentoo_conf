@@ -15,3 +15,6 @@ dev-vcs/git bash-completion%
 app-text/ghostscript-gpl cups
 dev-vcs/subversion -dso perl
 app-editors/xemacs athena xface xim
+dev-lisp/cmucl source
+dev-lisp/sbcl doc source
+dev-lisp/sbcl debug ldb

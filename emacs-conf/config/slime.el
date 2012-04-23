@@ -1,9 +1,10 @@
 ;(setq inferior-lisp-program "/usr/bin/sbcl")
-;(setq inferior-lisp-program "/usr/bin/sbcl --core /usr/lib64/sbcl/sbcl.core") ; _your Lisp system_
-(setq inferior-lisp-program "/usr/bin/ccl -K UTF-8 -I /home/wizard/tmp/cl-http/cl-http-70-218-s436-binghe-r75/contrib/kpoeck/port-template/cl-http.image") ; _your Lisp system_
-;(setq inferior-lisp-program "/usr/bin/ccl -K UTF-8") ; _your Lisp system_
-;(setq inferior-lisp-program "/usr/bin/ccl") ; _your Lisp system_
-;(setq inferior-lisp-program "/usr/bin/ccl -n -I /home/wizard/src/lisp/res.image") ; _your Lisp system_
+(setq inferior-lisp-program "/usr/bin/sbcl --core /usr/lib64/sbcl/sbcl.core")
+;(setq inferior-lisp-program "/usr/bin/ccl -K UTF-8 -I /home/wizard/tmp/cl-http/cl-http-70-218-s436-binghe-r75/contrib/kpoeck/port-template/cl-http.image")
+;(setq inferior-lisp-program "/usr/bin/ccl -K UTF-8")
+;(setq inferior-lisp-program "/usr/bin/ccl")
+;(setq inferior-lisp-program "/usr/bin/ccl -n -I /home/wizard/src/lisp/res.image")
+
 (require 'slime)
 (slime-setup '(slime-fancy slime-xref-browser))
 ;(add-to-list 'auto-mode-alist '(".cl" . common-lisp-mode))
