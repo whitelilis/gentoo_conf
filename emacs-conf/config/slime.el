@@ -1,4 +1,5 @@
 ;(setq inferior-lisp-program "/usr/bin/sbcl")
+;(setq inferior-lisp-program "/opt/cmucl/bin/lisp")
 (setq inferior-lisp-program "/usr/bin/sbcl --core /usr/lib64/sbcl/sbcl.core")
 ;(setq inferior-lisp-program "/usr/bin/ccl -K UTF-8 -I /home/wizard/tmp/cl-http/cl-http-70-218-s436-binghe-r75/contrib/kpoeck/port-template/cl-http.image")
 ;(setq inferior-lisp-program "/usr/bin/ccl -K UTF-8")

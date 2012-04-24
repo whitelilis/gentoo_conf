@@ -77,9 +77,12 @@ type=\"text/css\">")))
 (org-agenda-to-appt)
 
 
-(define-key org-mode-map [(C-return)] 'org-insert-todo-heading)
+;(define-key org-mode-map [(C-return)] 'org-insert-todo-heading)
 (define-key org-mode-map [(C-tab)] 'hippie-expand)
 (define-key org-mode-map [(S-tab)] 'org-force-cycle-archived)
 (define-key org-mode-map [(f9)] 'remember)
 ;; strange , in org mode ,this must turn  manually, the follow line doesn't work
 ;; (add-hook 'org-mode-hook 'toggle-truncate-lines)
+
+;;org export
+(setq org-export-with-sub-superscripts nil)
