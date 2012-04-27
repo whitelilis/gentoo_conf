@@ -44,7 +44,7 @@ d (){
 }
 
 pdf (){
-	epdfview "$@" 2>/dev/null
+	acroread "$@" 2>/dev/null
 }
 
 alias tda='java -jar /home/wizard/src/tda/tda.jar'
