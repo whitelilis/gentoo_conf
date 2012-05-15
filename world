@@ -58,6 +58,7 @@ media-sound/alsa-utils
 media-video/mplayer
 net-analyzer/gnu-netcat
 net-analyzer/iftop
+net-analyzer/sec
 net-analyzer/traceroute-nanog
 net-dns/bind-tools
 net-ftp/lftp

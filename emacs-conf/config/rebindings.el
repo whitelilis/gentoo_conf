@@ -21,7 +21,7 @@
 (define-key global-map [(f7)]  'cscope-find-called-functions)
 (define-key global-map [(f8)]  'cscope-find-functions-calling-this-function)
 
-
+(define-key global-map "\C-\\" 'wizard-insert-chinese-dot)
 
 ;(global-set-key [(control tab)] 'senator-complete-symbol)
 (global-set-key [(control tab)] 'hippie-expand) ;hippie-expand is very good (define the list in ~/emacs-config/conf/var.el)

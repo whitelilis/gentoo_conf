@@ -12,6 +12,13 @@
   (insert (current-time-string))
   )
 
+(defun wizard-insert-chinese-dot()
+  "Insert current time."
+  (interactive)
+  (save-excursion)
+  (insert "、")
+  )
+
 (defun wizard-indent-remember()
   "Indent remember text format."
   (interactive)
