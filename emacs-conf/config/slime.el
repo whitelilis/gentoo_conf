@@ -6,7 +6,7 @@
 (setq inferior-lisp-program "/usr/bin/ccl -K UTF-8")
 ;(setq inferior-lisp-program "/usr/bin/ccl")
 ;(setq inferior-lisp-program "/usr/bin/ccl -n -I /home/wizard/src/lisp/res.image")
-
+;(setq inferior-lisp-program "/home/wizard/src/ccl-1.7/lx86cl64")
 (require 'slime)
 (slime-setup '(slime-fancy slime-xref-browser))
 ;(add-to-list 'auto-mode-alist '(".cl" . common-lisp-mode))
