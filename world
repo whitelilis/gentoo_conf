@@ -65,6 +65,7 @@ net-ftp/lftp
 net-misc/curl
 net-misc/openvpn
 net-misc/sshpass
+net-p2p/rtorrent
 sys-apps/iproute2
 sys-apps/portage
 sys-fs/ntfs3g
