@@ -14,7 +14,7 @@ dev-lang/php cgi gd
 dev-vcs/git bash-completion%
 app-text/ghostscript-gpl cups
 dev-vcs/subversion -dso perl
-app-editors/xemacs athena xface xim
+app-editors/emacs imagemagick 
 dev-lisp/cmucl source
 dev-lisp/sbcl doc source
 net-p2p/rtorrent debug daemon
