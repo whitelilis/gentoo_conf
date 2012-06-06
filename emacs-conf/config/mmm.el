@@ -26,8 +26,9 @@
              (?# erb-comment    nil @ "<%#" @ " " _ " " @ "%>" @)
              (?= erb-expression nil @ "<%=" @ " " _ " " @ "%>" @))
     )))
-(add-hook 'nxml-mode-hook
-          (lambda ()
-            (setq mmm-classes '(erb-code))
-            (mmm-mode-on)))
-(add-to-list 'auto-mode-alist '("\\.html.erb$" . nxml-mode))
+
+;(add-hook 'nxml-mode-hook
+;          (lambda ()
+;            (setq mmm-classes '(erb-code))
+;            (mmm-mode-on)))
+;(add-to-list 'auto-mode-alist '("\\.html.erb$" . nxml-mode))
