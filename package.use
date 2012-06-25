@@ -18,3 +18,4 @@ app-editors/emacs imagemagick
 dev-lisp/cmucl source
 dev-lisp/sbcl doc source
 net-p2p/rtorrent debug daemon
+ dev-lang/perl ithreads

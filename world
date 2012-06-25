@@ -36,6 +36,7 @@ dev-java/ant
 dev-java/maven-bin
 dev-java/oracle-jdk-bin
 dev-java/oracle-jdk-bin:1.7
+dev-lang/perl
 dev-libs/libcgroup
 dev-lisp/clozurecl
 dev-lisp/sbcl

@@ -185,7 +185,7 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 
 --myLayout = Full--
 --myLayout = Mirror tiled ||| tiled ||| Full--
-myLayout = tiled ||| Full
+myLayout = Full ||| tiled
   where
      --default tiling algorithm partitions the screen into two panes--
      tiled   = Tall nmaster delta ratio
