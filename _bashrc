@@ -43,6 +43,11 @@ d (){
 	pdsh -R exec -u 17 -f 100 -w ^$@
 }
 
+
+longd (){
+	pdsh -R exec -u 300 -f 100 -w ^$@
+}
+
 pdf (){
 	acroread "$@" 2>/dev/null
 }
