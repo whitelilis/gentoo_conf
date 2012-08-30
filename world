@@ -18,6 +18,7 @@ app-emulation/wine
 app-emulation/winetricks
 app-i18n/fcitx
 app-misc/screen
+app-misc/tmux
 app-office/dia
 app-office/openoffice-bin
 app-portage/eix
@@ -31,8 +32,10 @@ app-text/acroread
 app-text/epdfview
 app-text/evince
 app-text/foxitreader
+app-text/multitail
 app-text/unix2dos
 dev-java/ant
+dev-java/jad-bin
 dev-java/maven-bin
 dev-java/oracle-jdk-bin
 dev-java/oracle-jdk-bin:1.7
@@ -45,6 +48,7 @@ dev-util/android-sdk-update-manager
 dev-util/ccache
 dev-util/cscope
 dev-util/dtrace
+dev-util/strace
 dev-vcs/darcs
 dev-vcs/git
 mail-client/thunderbird
@@ -68,6 +72,7 @@ net-misc/curl
 net-misc/openvpn
 net-misc/sshpass
 net-p2p/rtorrent
+sys-apps/ack
 sys-apps/iproute2
 sys-apps/portage
 sys-fs/ntfs3g
