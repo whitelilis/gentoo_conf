@@ -1,0 +1,17 @@
+
+;;; The following lines added by ql:add-to-init-file:
+#-quicklisp
+(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp" (user-homedir-pathname))))
+  (when (probe-file quicklisp-init)
+    (load quicklisp-init)))
+(setf *print-pretty* t)
+
+
+;(proclaim '(optimize (debug 3)))
+
+
+; for remote slime
+;(load "/home/liuzhe/quicklisp/dists/quicklisp/software/slime-20110730-cvs/swank-loader.lisp")
+;(funcall (read-from-string "swank-loader:init"))
+;(swank:create-server :port 4005 :style :spawn :dont-close t :coding-system "utf-8-unix")
+

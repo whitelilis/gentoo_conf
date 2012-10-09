@@ -42,7 +42,6 @@ dev-java/oracle-jdk-bin:1.7
 dev-lang/perl
 dev-libs/libcgroup
 dev-lisp/clozurecl
-dev-lisp/sbcl
 dev-perl/perltidy
 dev-util/android-sdk-update-manager
 dev-util/ccache
@@ -84,6 +83,7 @@ www-client/firefox
 www-client/links
 www-plugins/adobe-flash
 www-plugins/libflashsupport
+www-servers/apache
 x11-base/xorg-server
 x11-base/xorg-x11
 x11-drivers/nvidia-drivers
