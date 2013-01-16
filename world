@@ -34,15 +34,18 @@ app-text/evince
 app-text/foxitreader
 app-text/multitail
 app-text/unix2dos
+dev-db/mysql
 dev-java/ant
 dev-java/jad-bin
 dev-java/maven-bin
 dev-java/oracle-jdk-bin
 dev-java/oracle-jdk-bin:1.7
 dev-lang/perl
+dev-libs/libappindicator
 dev-libs/libcgroup
 dev-lisp/clozurecl
 dev-perl/perltidy
+dev-python/gevent
 dev-util/android-sdk-update-manager
 dev-util/ccache
 dev-util/cscope
@@ -63,8 +66,10 @@ media-sound/alsa-utils
 media-video/mplayer
 net-analyzer/gnu-netcat
 net-analyzer/iftop
+net-analyzer/mtr
 net-analyzer/sec
 net-analyzer/traceroute-nanog
+net-dialup/lrzsz
 net-dns/bind-tools
 net-ftp/lftp
 net-misc/curl
@@ -84,6 +89,7 @@ www-client/links
 www-plugins/adobe-flash
 www-plugins/libflashsupport
 www-servers/apache
+x11-apps/xlsfonts
 x11-base/xorg-server
 x11-base/xorg-x11
 x11-drivers/nvidia-drivers
