@@ -1,3 +1,6 @@
+(autoload 'enable-paredit-mode "paredit"
+     "Turn on pseudo-structural editing of Lisp code."
+     t)
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
 ;(setq inferior-lisp-program "/opt/cmucl/bin/lisp")
 ;(setq inferior-lisp-program "/usr/local/bin/sbcl --core /usr/local/lib64/sbcl/sbcl.core")
@@ -38,7 +41,7 @@
 ; for auto slime
 (add-hook 'slime-mode-hook
           (lambda ()
-;            (paredit-mode +1)
+            (paredit-mode +1)
             (unless (slime-connected-p)
               (save-excursion (slime)))))
 

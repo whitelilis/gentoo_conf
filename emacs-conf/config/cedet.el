@@ -1,8 +1,8 @@
 ;; Load CEDET
-(load-file "~/emacs-conf/packages/cedet-1.0pre4/common/cedet.el")
-(setq semanticdb-project-roots
-      (list
-       (expand-file-name "/")))
+;(load-file "~/emacs-conf/packages/cedet-1.0pre4/common/cedet.el")
+;(setq semanticdb-project-roots
+;      (list
+;       (expand-file-name "/")))
 
 ;; Enabling various SEMANTIC minor modes.  See semantic/INSTALL for more ideas.
 ;; Select one of the following:
@@ -19,7 +19,7 @@
 ;; (semantic-load-enable-guady-code-helpers)
 
 ;; * This turns on which-func support (Plus all other code helpers)
-(semantic-load-enable-excessive-code-helpers)
+;(semantic-load-enable-excessive-code-helpers)
 
 ;; This turns on modes that aid in grammar writing and semantic tool
 ;; development.  It does not enable any other features such as code
