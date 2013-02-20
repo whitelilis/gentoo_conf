@@ -10,6 +10,33 @@
 ;(setq inferior-lisp-program "/usr/bin/ccl")
 ;(setq inferior-lisp-program "/usr/bin/ccl -n -I /home/wizard/src/lisp/res.image")
 ;(setq inferior-lisp-program "/home/wizard/src/ccl-1.7/lx86cl64")
+
+(require 'rainbow-delimiters)
+(global-rainbow-delimiters-mode)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(completions-common-part ((t (:inherit default :foreground "red"))))
+ '(diredp-compressed-file-suffix ((t (:foreground "#7b68ee"))))
+ '(diredp-ignored-file-name ((t (:foreground "#aaaaaa"))))
+
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#f00050"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "#005000"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "#500000"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "#0000b0"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "#00b000"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "#b00000"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "#0000f0"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "#00f000"))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "#f00000"))))
+ '(rainbow-delimiters-unmatched-face ((t (:foreground "red"))))
+ '(show-paren-match ((((class color) (background light)) (:background "azure2")))))
+
+
+
+
 (require 'slime)
 (slime-setup '(slime-fancy slime-xref-browser))
 ;(add-to-list 'auto-mode-alist '(".cl" . common-lisp-mode))
@@ -41,12 +68,12 @@
 ; for auto slime
 (add-hook 'slime-mode-hook
           (lambda ()
-            (paredit-mode +1)
+            (enable-paredit-mode)
             (unless (slime-connected-p)
               (save-excursion (slime)))))
 
 
-;(add-hook 'slime-repl-mode-hook (lambda () (enable-paredit-mode)))
+(add-hook 'slime-repl-mode-hook (lambda () (enable-paredit-mode)))
 
 
 ; for shortcut
