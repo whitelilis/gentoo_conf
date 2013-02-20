@@ -40,7 +40,7 @@ alias SWITCH-EDITOR-GUI='export EDITOR=vi' # then just type SWITCH-EDITOR-GUI an
 alias SWITCH-EDITOR-CUI='export EDITOR=vi' # then just type SWITCH-EDITOR-CUI and editor will be set to CUI
 
 d (){
-	pdsh -R exec -u 17 -f 100 -w ^$@
+	pdsh -R exec -u 17 -f 10 -w ^$@
 }
 
 

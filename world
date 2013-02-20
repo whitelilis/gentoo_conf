@@ -68,12 +68,14 @@ net-analyzer/gnu-netcat
 net-analyzer/iftop
 net-analyzer/mtr
 net-analyzer/sec
+net-analyzer/tcpdump
 net-analyzer/traceroute-nanog
 net-dialup/lrzsz
 net-dns/bind-tools
 net-ftp/lftp
 net-misc/curl
 net-misc/openvpn
+net-misc/pssh
 net-misc/sshpass
 net-p2p/rtorrent
 sys-apps/ack
