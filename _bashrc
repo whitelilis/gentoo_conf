@@ -56,6 +56,7 @@ alias tda='java -jar /home/wizard/src/tda/tda.jar'
 alias work='mplayer ~/music/secret_garden/*.mp3'
 alias R='LC_ALL=C R'
 alias sc="screen -D -RR"
+alias gpush='mv ~/.ssh/{config,c} && git push && mv ~/.ssh/{c,config}'
 
 
 ###### private #####
