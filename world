@@ -7,7 +7,6 @@ app-admin/sysstat
 app-arch/p7zip
 app-doc/elisp-manual
 app-doc/elisp-tutorial
-app-editors/emacs
 app-editors/vim
 app-emacs/htmlize
 app-emulation/emul-linux-x86-compat
@@ -51,6 +50,7 @@ dev-util/ccache
 dev-util/cscope
 dev-util/dtrace
 dev-util/strace
+dev-vcs/cvs
 dev-vcs/darcs
 dev-vcs/git
 mail-client/thunderbird
@@ -86,6 +86,7 @@ sys-fs/reiserfsprogs
 sys-kernel/gentoo-sources
 sys-process/iotop
 sys-process/vixie-cron
+virtual/emacs
 www-client/firefox
 www-client/links
 www-plugins/adobe-flash
@@ -95,8 +96,10 @@ x11-apps/xlsfonts
 x11-base/xorg-server
 x11-base/xorg-x11
 x11-drivers/nvidia-drivers
+x11-libs/libnotify
 x11-libs/pango
 x11-misc/dmenu
+x11-misc/tinynotify-send
 x11-misc/xscreensaver
 x11-plugins/pidgin-qq
 x11-terms/rxvt-unicode
