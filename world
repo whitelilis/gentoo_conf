@@ -32,6 +32,7 @@ app-text/epdfview
 app-text/evince
 app-text/foxitreader
 app-text/multitail
+app-text/texlive-core
 app-text/unix2dos
 dev-db/mysql
 dev-java/ant
@@ -40,6 +41,7 @@ dev-java/maven-bin
 dev-java/oracle-jdk-bin
 dev-java/oracle-jdk-bin:1.7
 dev-lang/perl
+dev-libs/icu
 dev-libs/libappindicator
 dev-libs/libcgroup
 dev-lisp/clozurecl
