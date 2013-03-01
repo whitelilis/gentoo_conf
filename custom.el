@@ -26,3 +26,14 @@
 
 ;; larger font
 (increment-default-font-height 30)
+
+
+;;; frenquency used command in slime repl
+(defun change-pr ()
+  (interactive)
+  (slime-repl-previous-input)
+  (slime-repl-bol)
+  (paredit-open-round)
+  (paredit-forward-slurp-sexp))
+(global-set-key [(control x) (w)]  'change-pr)
+
