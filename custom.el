@@ -23,17 +23,39 @@
 
 ;; default use sbcl
 (setq slime-default-lisp 'sbcl)
+(global-set-key "\C-cs" 'slime-selector)
+(eval-after-load 'slime
+  '(progn
+     (slime-setup '(slime-fancy slime-xref-browser slime-scratch))))
+
+
+;;; for time display
+(setq display-time-24hr-format t)
+(setq display-time-format "%Y-%m-%d %R")
+(display-time)
 
 ;; larger font
-(increment-default-font-height 30)
+;; (increment-default-font-height 30)
+
+
+;;; for perl mode
+(defalias 'perl-mode 'cperl-mode)
+(add-hook 'cperl-mode-hook 'n-cperl-mode-hook t)
+(defun n-cperl-mode-hook ()
+  (paredit-mode)
+  (setq cperl-indent-level 8)
+  (setq cperl-continued-statement-offset 0)
+;  (setq cperl-extra-newline-before-brace t)
+;  (set-face-background 'cperl-array-face "blue")
+;  (set-face-background 'cperl-hash-face "red")
+  )
 
 
 ;;; frenquency used command in slime repl
 (defun change-pr ()
   (interactive)
   (slime-repl-previous-input)
-  (slime-repl-bol)
-  (paredit-open-round)
-  (paredit-forward-slurp-sexp))
+  (paredit-backward)
+  (paredit-wrap-sexp))
 (global-set-key [(control x) (w)]  'change-pr)
 

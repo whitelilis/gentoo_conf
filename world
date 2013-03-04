@@ -45,6 +45,7 @@ dev-libs/icu
 dev-libs/libappindicator
 dev-libs/libcgroup
 dev-lisp/clozurecl
+dev-perl/Net-SSLeay
 dev-perl/perltidy
 dev-python/gevent
 dev-util/android-sdk-update-manager
@@ -69,11 +70,13 @@ media-video/mplayer
 net-analyzer/gnu-netcat
 net-analyzer/iftop
 net-analyzer/mtr
+net-analyzer/nikto
 net-analyzer/sec
 net-analyzer/tcpdump
 net-analyzer/traceroute-nanog
 net-dialup/lrzsz
 net-dns/bind-tools
+net-dns/libidn
 net-ftp/lftp
 net-misc/curl
 net-misc/openvpn
