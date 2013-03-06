@@ -17,6 +17,9 @@
  )
 
 ;; wizard code start here
+;; zoo
+(setq backup-directory-alist '(("." . "~/back")))
+
 
 ;; rainbow-delimiters-mode is good, add for all
 (global-rainbow-delimiters-mode)
@@ -35,7 +38,7 @@
 (display-time)
 
 ;; larger font
-;; (increment-default-font-height 30)
+(increment-default-font-height 20)
 
 
 ;;; for perl mode
@@ -59,3 +62,13 @@
   (paredit-wrap-sexp))
 (global-set-key [(control x) (w)]  'change-pr)
 
+;;; font
+(set-default-font "文泉驿等宽正黑-12")
+;(set-face-attribute 'default nil :font "文泉驿等宽微米黑-12") ; very good width
+;(set-face-attribute 'default nil :font "Monaco-12")  ; good for programming
+;(set-face-attribute 'default nil :height 120)
+                                        ; The value is in 1/10pt, so 100 will give you 10pt, etc.
+;;; org export to html, no sub-superscripts
+(eval-after-load 'org
+  '(progn
+     (setq org-use-sub-superscripts nil)))
