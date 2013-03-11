@@ -29,7 +29,8 @@
 (global-set-key "\C-cs" 'slime-selector)
 (eval-after-load 'slime
   '(progn
-     (slime-setup '(slime-fancy slime-xref-browser slime-scratch))))
+     (slime-setup '(slime-fancy slime-xref-browser slime-scratch))
+     (setq slime-autodoc-use-multiline-p t)))
 
 
 ;;; for time display
