@@ -73,3 +73,21 @@
 (eval-after-load 'org
   '(progn
      (setq org-use-sub-superscripts nil)))
+
+
+;;; rebind
+(global-set-key [(control s)] '(lambda ()
+                                 "For easy search, eg C-s C-w"
+                                 (interactive)
+                                 (backward-word)
+                                 (isearch-forward)))
+
+
+
+
+
+
+
+
+
+
