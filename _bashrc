@@ -40,12 +40,12 @@ alias SWITCH-EDITOR-GUI='export EDITOR=vi' # then just type SWITCH-EDITOR-GUI an
 alias SWITCH-EDITOR-CUI='export EDITOR=vi' # then just type SWITCH-EDITOR-CUI and editor will be set to CUI
 
 d (){
-	pdsh -R exec -u 17 -f 10 -w ^$@
+	pdsh -R exec -u 17 -f 5 -w ^$@
 }
 
 
 longd (){
-	pdsh -R exec -u 300 -f 100 -w ^$@
+	pdsh -R exec -u 300 -f 10 -w ^$@
 }
 
 pdf (){
@@ -58,6 +58,7 @@ alias R='LC_ALL=C R'
 alias sc="screen -D -RR"
 alias gpush='mv ~/.ssh/{config,c} && git push && mv ~/.ssh/{c,config}'
 
+alias ll='ls -l'
 
 ###### private #####
 source ~/.privaterc

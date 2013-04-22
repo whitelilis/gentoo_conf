@@ -20,6 +20,7 @@ app-misc/screen
 app-misc/tmux
 app-office/dia
 app-office/openoffice-bin
+app-office/texmacs
 app-portage/eix
 app-portage/elogv
 app-portage/gentoolkit
@@ -94,6 +95,7 @@ sys-process/vixie-cron
 virtual/emacs
 www-client/firefox
 www-client/links
+www-client/w3m
 www-plugins/adobe-flash
 www-plugins/libflashsupport
 www-servers/apache

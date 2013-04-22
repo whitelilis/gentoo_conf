@@ -8,6 +8,7 @@
  '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
  '(custom-safe-themes (quote ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default)))
  '(fci-rule-color "#eee8d5")
+ '(cua-enable-cua-keys nil)
  '(session-use-package t nil (session)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -25,7 +26,7 @@
 (global-rainbow-delimiters-mode)
 
 ;; default use sbcl
-(setq slime-default-lisp 'sbcl)
+(setq slime-default-lisp 'ccl)
 (global-set-key "\C-cs" 'slime-selector)
 (eval-after-load 'slime
   '(progn
@@ -74,6 +75,9 @@
   '(progn
      (setq org-use-sub-superscripts nil)))
 
+(setq org-agenda-files (list "/home/wizard/src/github/org/work.org"
+                             "/home/wizard/src/github/org/life.org" 
+                             "/home/wizard/src/github/org/issue.org"))
 
 ;;; rebind
 (global-set-key [(control s)] '(lambda ()
@@ -81,7 +85,32 @@
                                  (interactive)
                                  (backward-word)
                                  (isearch-forward)))
+(global-set-key [(f5)] 'query-replace-regexp)
+(global-set-key [(f8)] 'magit-status)
+(global-set-key [(control f8)] 'magit-log)
 
+
+(setq hippie-expand-try-functions-list
+      '(
+        try-expand-dabbrev
+        try-expand-dabbrev-visible
+        try-expand-dabbrev-all-buffers
+        try-expand-dabbrev-from-kill
+        try-expand-list
+        try-expand-list-all-buffers
+        try-expand-line-all-buffers
+        try-expand-line
+        try-complete-file-name-partially
+        try-complete-file-name
+        try-expand-all-abbrevs
+        try-complete-lisp-symbol-partially
+        try-complete-lisp-symbol
+        try-expand-whole-kill
+        senator-try-expand-semantic
+;;;         senator-complete-symbol
+;;;         semantic-ia-complete-symbol
+        ispell-complete-word))
+(global-set-key [(control tab)] 'hippie-expand) ;hippie-expand is very good 
 
 
 

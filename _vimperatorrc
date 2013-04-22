@@ -1,7 +1,4 @@
 :set editor='urxvt -e vim'
 :set editor='emacsclient'
 
-“Look up the word you selected in dict.cn在dict.cn中查找所选词的英语
-command! dict -nargs=* tabopen http://dict.cn/<args>
-map w :dict
-map <silent> W :exe “:dict “+content.getSelection()<CR>
+
