@@ -26,7 +26,7 @@
 (global-rainbow-delimiters-mode)
 
 ;; default use sbcl
-(setq slime-default-lisp 'ccl)
+(setq slime-default-lisp 'sbcl)
 (global-set-key "\C-cs" 'slime-selector)
 (eval-after-load 'slime
   '(progn
