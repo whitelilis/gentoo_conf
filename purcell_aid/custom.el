@@ -112,7 +112,8 @@
         ispell-complete-word))
 (global-set-key [(control tab)] 'hippie-expand) ;hippie-expand is very good 
 
-
+(setq ac-expand-on-auto-complete t)
+(setq ac-auto-start t)
 
 
 
