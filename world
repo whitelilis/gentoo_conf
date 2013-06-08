@@ -46,7 +46,6 @@ dev-lang/perl
 dev-libs/icu
 dev-libs/libappindicator
 dev-libs/libcgroup
-dev-lisp/clozurecl
 dev-perl/Net-SSLeay
 dev-perl/perltidy
 dev-python/gevent
@@ -54,6 +53,7 @@ dev-util/android-sdk-update-manager
 dev-util/ccache
 dev-util/cscope
 dev-util/dtrace
+dev-util/oprofile
 dev-util/strace
 dev-vcs/cvs
 dev-vcs/darcs

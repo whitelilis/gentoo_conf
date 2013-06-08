@@ -5,10 +5,11 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector (vector "#657b83" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#fdf6e3"))
+ '(cua-enable-cua-keys nil)
  '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
  '(custom-safe-themes (quote ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default)))
  '(fci-rule-color "#eee8d5")
- '(cua-enable-cua-keys nil)
+ '(safe-local-variable-values (quote ((Syntax . ANSI-Common-Lisp) (Package X8664 :use CL) (Package . CCL) (ruby-compilation-executable . "ruby") (ruby-compilation-executable . "ruby1.8") (ruby-compilation-executable . "ruby1.9") (ruby-compilation-executable . "rbx") (ruby-compilation-executable . "jruby"))))
  '(session-use-package t nil (session)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -26,7 +27,7 @@
 (global-rainbow-delimiters-mode)
 
 ;; default use sbcl
-(setq slime-default-lisp 'sbcl)
+(setq slime-default-lisp 'ccl)
 (global-set-key "\C-cs" 'slime-selector)
 (eval-after-load 'slime
   '(progn
@@ -76,7 +77,8 @@
      (setq org-use-sub-superscripts nil)))
 
 (setq org-agenda-files (list "/home/wizard/src/github/org/work.org"
-                             "/home/wizard/src/github/org/life.org" 
+                             "/home/wizard/src/github/org/life.org"
+                             "/home/wizard/todo.org"
                              "/home/wizard/src/github/org/issue.org"))
 
 ;;; rebind
@@ -111,9 +113,7 @@
 ;;;         semantic-ia-complete-symbol
         ispell-complete-word))
 (global-set-key [(control tab)] 'hippie-expand) ;hippie-expand is very good 
-
-(setq ac-expand-on-auto-complete t)
-(setq ac-auto-start t)
+(global-set-key [(control c) (control c)])
 
 
 
