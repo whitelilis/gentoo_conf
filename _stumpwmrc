@@ -43,7 +43,7 @@
 
 (defcommand urxvt () ()
   "run urxvt"
-  (run-or-raise "urxvt" '(:title "urxvt")))
+  (run-or-raise "urxvt -e tmux" '(:class "URxvt")))
 
 ;Turn on the modeline
 
@@ -75,8 +75,10 @@
 (define-key *top-map* (kbd "s-8") "emacs")
 (define-key *top-map* (kbd "s-1") "urxvt")
 (define-key *top-map* (kbd "s-3") "thunderbird")
+
 (define-key *top-map* (kbd "s-Tab") "pull-hidden-next")
-(define-key *top-map* (kbd "M-F9") "loadrc")
+(define-key *top-map* (kbd "s-c") "kill-window")
+(define-key *top-map* (kbd "s-l") "run-shell-command xscreensaver-command -lock")
 (define-key *top-map* (kbd "Pause") "gother")
 (define-key *top-map* (kbd "C-Pause") "grouplist")
 
@@ -94,7 +96,8 @@
 
 ;Create some new virtual desktops (called groups in stumpwm):
 
-(run-commands "gnewbg Web" "gnewbg Media")
+(dolist (desk (list "Web" "Media" "Terms" "Work"))
+  (run-commands (format nil "gnewbg ~a"  desk)))
 
 
 ;My window placement rules:
@@ -102,10 +105,16 @@
 ;; Clear rules
 (clear-window-placement-rules)
 
+(define-frame-preference "Terms"
+    (0 t   t :class "URxvt"))
+
+(define-frame-preference "Work"
+    (0 t   t :title "thunderbird"))
+
 (define-frame-preference "Default"
   ;; frame raise lock (lock AND raise == jumpto)
   (0 t   t :title "emacs")
-  (0 t   t :class "XTerm"))
+  )
 
 (define-frame-preference "Web"
   ;; frame raise lock (lock AND raise == jumpto)
