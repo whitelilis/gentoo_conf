@@ -86,7 +86,7 @@
 ;Some keybindings for the defined prefix key:
 
 (define-key *root-map* (kbd "DEL") "repack-window-numbers")
-(define-key *root-map* (kbd "I") "show-window-properties")
+(define-key *root-map* (kbd "i") "list-window-properties")
 
 
 ;Set the mouse policy to focus follows mouse;
