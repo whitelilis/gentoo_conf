@@ -76,6 +76,7 @@
 (define-key *top-map* (kbd "s-1") "urxvt")
 (define-key *top-map* (kbd "s-3") "thunderbird")
 
+(define-key *top-map* (kbd "s-p") "exec")
 (define-key *top-map* (kbd "s-Tab") "pull-hidden-next")
 (define-key *top-map* (kbd "s-c") "kill-window")
 (define-key *top-map* (kbd "s-l") "run-shell-command xscreensaver-command -lock")
