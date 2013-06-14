@@ -16,7 +16,8 @@
 (load "/home/wizard/quicklisp/dists/quicklisp/software/stumpwm-20120107-git/contrib/net.lisp")
 (load "/home/wizard/quicklisp/dists/quicklisp/software/stumpwm-20120107-git/contrib/cpu.lisp")
 
-
+;;; set font to satisfy utf8 throuth wenquanyi; need 'set +fp /path/to/wenquyi' first, I put this in .xinitrc
+(set-font "-misc-wenquanyi micro hei-medium-r-normal--0-0-0-0-p-0-iso10646-1")
 ;I set the prefix key to the menu key. This key is easier to type than Ctrl-t:
 
 ;; Change the Stumpwm prefix key: Use the menu key
@@ -54,7 +55,7 @@
 
 ;; Show time, cpu usage and network traffic in the modeline
 (setf *screen-mode-line-format*
-      (list '(:eval (run-shell-command "date '+%R, %F'|tr -d [:cntrl:]" t)) " | %t | %c| %l | [^B%n^b] %W"))
+      (list '(:eval (run-shell-command "date '+%R, %F %a'|tr -d [:cntrl:]" t)) " | %t | %c| %l | [^B%n^b] %W"))
 
 
 ;Select a random background image from a given folder
