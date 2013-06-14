@@ -5,6 +5,8 @@ app-admin/swatch
 app-admin/syslog-ng
 app-admin/sysstat
 app-arch/p7zip
+app-dicts/stardict-langdao-en-zh-gb
+app-dicts/stardict-xdict-en-zh-gb
 app-doc/elisp-manual
 app-doc/elisp-tutorial
 app-editors/vim
