@@ -62,6 +62,7 @@ dev-vcs/darcs
 dev-vcs/git
 mail-client/thunderbird
 mail-mta/msmtp
+media-fonts/wqy-bitmapfont
 media-fonts/wqy-microhei
 media-fonts/wqy-zenhei
 media-gfx/geeqie
