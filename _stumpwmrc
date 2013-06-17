@@ -36,7 +36,7 @@
 
 (defcommand thunderbird () ()
   "run thunderbird"
-  (run-or-raise "thunderbird" '(:title "thunderbird")))
+  (run-or-raise "thunderbird" '(:class "Thunderbird")))
 
 (defcommand aumix () ()
   "run aumix"
@@ -77,7 +77,7 @@
 (define-key *top-map* (kbd "s-1") "urxvt")
 (define-key *top-map* (kbd "s-3") "thunderbird")
 
-(define-key *top-map* (kbd "s-p") "exec")
+(define-key *top-map* (kbd "s-p") "run-shell-command dmenu_run")
 (define-key *top-map* (kbd "s-Tab") "pull-hidden-next")
 (define-key *top-map* (kbd "s-c") "kill-window")
 (define-key *top-map* (kbd "s-l") "run-shell-command xscreensaver-command -lock")
@@ -98,7 +98,7 @@
 
 ;Create some new virtual desktops (called groups in stumpwm):
 
-(dolist (desk (list "Web" "Media" "Terms" "Work"))
+(dolist (desk (list "Default" "Web" "Media" "Terms" "Work"))
   (run-commands (format nil "gnewbg ~a"  desk)))
 
 
@@ -111,7 +111,7 @@
     (0 t   t :class "URxvt"))
 
 (define-frame-preference "Work"
-    (0 t   t :title "thunderbird"))
+    (0 t   t :class "Thunderbird"))
 
 (define-frame-preference "Default"
   ;; frame raise lock (lock AND raise == jumpto)
