@@ -1,56 +1,60 @@
 ;; -*-lisp-*-
 ;; Load swank.
 ;;; start swank.
-(load "/home/wizard/slime/swank-loader.lisp")
-(funcall (read-from-string "swank-loader:init"))
-(swank:create-server :port 4009
-                     :style swank:*communication-style*
-                     :dont-close t
-                     :coding-system "utf-8-unix"
-                     )
+;; (load "/home/wizard/slime/swank-loader.lisp")
+;; (funcall (read-from-string "swank-loader:init"))
+;; (swank:create-server :port 4009
+;;                      :style swank:*communication-style*
+;;                      :dont-close t
+;;                      :coding-system "utf-8-unix"
+;;                      )
 
 (in-package :stumpwm)
 
-;Load some packges from the git stumpwm contrib directory:
+                                        ;Load some packges from the git stumpwm contrib directory:
 
 (load "/home/wizard/quicklisp/dists/quicklisp/software/stumpwm-20120107-git/contrib/net.lisp")
 (load "/home/wizard/quicklisp/dists/quicklisp/software/stumpwm-20120107-git/contrib/cpu.lisp")
 
 ;;; set font to satisfy utf8 throuth wenquanyi; need 'set +fp /path/to/wenquyi' first, I put this in .xinitrc
 (set-font "-misc-wenquanyi micro hei-medium-r-normal--0-0-0-0-p-0-iso10646-1")
-;I set the prefix key to the menu key. This key is easier to type than Ctrl-t:
+                                        ;I set the prefix key to the menu key. This key is easier to type than Ctrl-t:
 
 ;; Change the Stumpwm prefix key: Use the menu key
-;(set-prefix-key (kbd "Menu"))
+                                        ;(set-prefix-key (kbd "Menu"))
 
 
-;Define a bunch of commands to switch to an already started application or to start it if it is not yet running:
+                                        ;Define a bunch of commands to switch to an already started application or to start it if it is not yet running:
 
 (defcommand emacs () ()
-  "run emacs"
-  (run-or-raise "emacs" '(:title "emacs")))
+            "run emacs"
+            (run-or-raise "emacs" '(:title "emacs")))
 
 (defcommand firefox () ()
-  "run firefox"
-  (run-or-raise "firefox" '(:class "Firefox")))
+            "run firefox"
+            (run-or-raise "firefox" '(:class "Firefox")))
 
 (defcommand thunderbird () ()
-  "run thunderbird"
-  (run-or-raise "thunderbird" '(:class "Thunderbird")))
+            "run thunderbird"
+            (run-or-raise "thunderbird" '(:class "Thunderbird")))
 
 (defcommand aumix () ()
-  "run aumix"
-  (run-or-raise "xterm -name aumix -e aumix" '(:instance "aumix")))
+            "run aumix"
+            (run-or-raise "xterm -name aumix -e aumix" '(:instance "aumix")))
 
 (defcommand urxvt () ()
-  "run urxvt"
-  (run-or-raise "urxvt -e tmux" '(:class "URxvt")))
+            "run urxvt"
+            (run-or-raise "urxvt -e tmux" '(:class "URxvt")))
 
-;Turn on the modeline
+(defcommand pdf () ()
+            "run pdf viewer"
+            (run-or-raise "acroread" '(:class "Acroread")))
+
+                                        ;Turn on the modeline
 
 ;; Turn on the modeline
 (if (not (head-mode-line (current-head)))
-     (toggle-mode-line (current-screen) (current-head)))
+    (toggle-mode-line (current-screen) (current-head)))
 
 
 ;; Show time, cpu usage and network traffic in the modeline
@@ -58,7 +62,7 @@
       (list '(:eval (run-shell-command "date '+%R, %F %a'|tr -d [:cntrl:]" t)) " | %t | %c| %l | [^B%n^b] %W"))
 
 
-;Select a random background image from a given folder
+                                        ;Select a random background image from a given folder
 
 ;; Define the background window
 ;; (defvar *background-image-path* "/home/wizard/.fvwm")
@@ -70,12 +74,13 @@
 ;; (run-shell-command (concatenate 'string "display -window root " (select-random-background-image)))
 
 
-;Define some toplevel keybindings. These bindings don't require the prefix key. I use them to switch between my open applications:
+                                        ;Define some toplevel keybindings. These bindings don't require the prefix key. I use them to switch between my open applications:
 
 (define-key *top-map* (kbd "s-4") "firefox")
 (define-key *top-map* (kbd "s-8") "emacs")
 (define-key *top-map* (kbd "s-1") "urxvt")
 (define-key *top-map* (kbd "s-3") "thunderbird")
+(define-key *top-map* (kbd "s-5") "pdf")
 
 (define-key *top-map* (kbd "s-p") "run-shell-command dmenu_run")
 (define-key *top-map* (kbd "s-Tab") "pull-hidden-next")
@@ -85,24 +90,24 @@
 (define-key *top-map* (kbd "C-Pause") "grouplist")
 
 
-;Some keybindings for the defined prefix key:
+                                        ;Some keybindings for the defined prefix key:
 
 (define-key *root-map* (kbd "DEL") "repack-window-numbers")
 (define-key *root-map* (kbd "i") "list-window-properties")
 
 
-;Set the mouse policy to focus follows mouse;
+                                        ;Set the mouse policy to focus follows mouse;
 
 (setf *mouse-focus-policy* :sloppy) ;; :click, :ignore, :sloppy
 
 
-;Create some new virtual desktops (called groups in stumpwm):
+                                        ;Create some new virtual desktops (called groups in stumpwm):
 
-(dolist (desk (list "Default" "Web" "Media" "Terms" "Work"))
+(dolist (desk (list "Default" "Doc" "Web" "Media" "Terms" "Work" "VM"))
   (run-commands (format nil "gnewbg ~a"  desk)))
 
 
-;My window placement rules:
+                                        ;My window placement rules:
 
 ;; Clear rules
 (clear-window-placement-rules)
@@ -114,17 +119,20 @@
     (0 t   t :class "Thunderbird"))
 
 (define-frame-preference "Default"
-  ;; frame raise lock (lock AND raise == jumpto)
-  (0 t   t :title "emacs")
-  )
+    ;; frame raise lock (lock AND raise == jumpto)
+    (0 t   t :title "emacs"))
+
+(define-frame-preference "Doc"
+    (0 t   t :class "Acroread"))
 
 (define-frame-preference "Web"
-  ;; frame raise lock (lock AND raise == jumpto)
-  (0 t   t :class "Firefox"))
+    (0 t   t :class "Firefox"))
 
 (define-frame-preference "Media"
-  ;; frame raise lock (lock AND raise == jumpto)
-  (0 t   t :instance "aumix")
-  (0 t   t :class "MPlayer")
-  (0 t   t :class "Avidemux"))
+    (0 t   t :instance "aumix")
+    (0 t   t :class "MPlayer")
+    (0 t   t :class "Avidemux"))
+
+(define-frame-preference "VM"
+    (0 t t :class "VirtualBox"))
 
