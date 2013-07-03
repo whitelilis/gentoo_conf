@@ -51,6 +51,7 @@ dev-libs/libcgroup
 dev-perl/Net-SSLeay
 dev-perl/perltidy
 dev-python/gevent
+dev-texlive/texlive-latexextra
 dev-util/android-sdk-update-manager
 dev-util/ccache
 dev-util/cscope

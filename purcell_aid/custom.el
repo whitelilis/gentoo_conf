@@ -116,7 +116,9 @@
 (global-set-key [(control c) (control c)])
 
 
-
+;;; for log4slime
+(load "~/quicklisp/log4slime-setup.el")
+(global-log4slime-mode 1)
 
 
 

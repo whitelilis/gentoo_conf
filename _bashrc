@@ -52,6 +52,13 @@ pdf (){
 	acroread "$@" 2>/dev/null
 }
 
+new-repo (){
+	repo=$1
+	mkdir $repo
+	cd $repo && git init . && git config --bool core.bare true
+	cd -
+}
+
 alias tda='java -jar /home/wizard/src/tda/tda.jar'
 alias work='mplayer ~/music/secret_garden/*.mp3'
 alias R='LC_ALL=C R'
