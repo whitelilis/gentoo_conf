@@ -6,6 +6,7 @@
  '(ansi-color-faces-vector [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector (vector "#657b83" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#fdf6e3"))
  '(cua-enable-cua-keys nil)
+ '(org-export-latex-packages-alist '(("" "CJKutf8" t)))
  '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
  '(custom-safe-themes (quote ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default)))
  '(fci-rule-color "#eee8d5")
@@ -26,11 +27,13 @@
 ;; rainbow-delimiters-mode is good, add for all
 (global-rainbow-delimiters-mode)
 
-;; default use sbcl
+;; default use ccl
 (setq slime-default-lisp 'ccl)
 (global-set-key "\C-cs" 'slime-selector)
 (eval-after-load 'slime
   '(progn
+     (add-to-list 'slime-lisp-implementations
+		  '(ccl ("ccl") :coding-system utf-8-unix))
      (slime-setup '(slime-fancy slime-xref-browser slime-scratch))
      (setq slime-autodoc-use-multiline-p t)))
 
@@ -41,7 +44,7 @@
 (display-time)
 
 ;; larger font
-(increment-default-font-height 20)
+                                        ;(increment-default-font-height 20)
 
 
 ;;; for perl mode
@@ -51,9 +54,9 @@
   (paredit-mode)
   (setq cperl-indent-level 8)
   (setq cperl-continued-statement-offset 0)
-;  (setq cperl-extra-newline-before-brace t)
-;  (set-face-background 'cperl-array-face "blue")
-;  (set-face-background 'cperl-hash-face "red")
+                                        ;  (setq cperl-extra-newline-before-brace t)
+                                        ;  (set-face-background 'cperl-array-face "blue")
+                                        ;  (set-face-background 'cperl-hash-face "red")
   )
 
 
@@ -67,9 +70,9 @@
 
 ;;; font
 (set-default-font "文泉驿等宽正黑-12")
-;(set-face-attribute 'default nil :font "文泉驿等宽微米黑-12") ; very good width
-;(set-face-attribute 'default nil :font "Monaco-12")  ; good for programming
-;(set-face-attribute 'default nil :height 120)
+                                        ;(set-face-attribute 'default nil :font "文泉驿等宽微米黑-12") ; very good width
+                                        ;(set-face-attribute 'default nil :font "Monaco-12")  ; good for programming
+                                        ;(set-face-attribute 'default nil :height 120)
                                         ; The value is in 1/10pt, so 100 will give you 10pt, etc.
 ;;; org export to html, no sub-superscripts
 (eval-after-load 'org
@@ -113,12 +116,7 @@
 ;;;         semantic-ia-complete-symbol
         ispell-complete-word))
 (global-set-key [(control tab)] 'hippie-expand) ;hippie-expand is very good 
-(global-set-key [(control c) (control c)])
 
-
-;;; for log4slime
-(load "~/quicklisp/log4slime-setup.el")
-(global-log4slime-mode 1)
 
 
 

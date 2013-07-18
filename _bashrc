@@ -24,7 +24,7 @@ export XIM=fcitx
 export XIM_PROGRAM=fcitx
 export GTK_IM_MODULE=xim
 export QT_IM_MODULE=xim
-export PATH="/opt/android-sdk-update-manager/platform-tools:~/tools:~/build/bin:$PATH"
+export PATH="/opt/texlive/2005/bin/i386-linux:/opt/android-sdk-update-manager/platform-tools:~/tools:~/build/bin:$PATH"
 
 
 export LC_ALL="zh_CN.UTF-8"
