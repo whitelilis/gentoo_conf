@@ -27,28 +27,32 @@
                                         ;Define a bunch of commands to switch to an already started application or to start it if it is not yet running:
 
 (defcommand emacs () ()
-            "run emacs"
-            (run-or-raise "emacs" '(:title "emacs")))
+  "run emacs"
+  (run-or-raise "emacs" '(:class "Emacs")))
 
 (defcommand firefox () ()
-            "run firefox"
-            (run-or-raise "firefox" '(:class "Firefox")))
+  "run firefox"
+  (run-or-raise "firefox" '(:class "Firefox")))
 
 (defcommand thunderbird () ()
-            "run thunderbird"
-            (run-or-raise "thunderbird" '(:class "Thunderbird")))
+  "run thunderbird"
+  (run-or-raise "thunderbird" '(:class "Thunderbird")))
 
 (defcommand aumix () ()
-            "run aumix"
-            (run-or-raise "xterm -name aumix -e aumix" '(:instance "aumix")))
+  "run aumix"
+  (run-or-raise "xterm -name aumix -e aumix" '(:instance "aumix")))
 
 (defcommand urxvt () ()
-            "run urxvt"
-            (run-or-raise "urxvt -e tmux" '(:class "URxvt")))
+  "run urxvt"
+  (run-or-raise "urxvt -e tmux" '(:class "URxvt")))
 
 (defcommand pdf () ()
-            "run pdf viewer"
-            (run-or-raise "acroread" '(:class "Acroread")))
+  "run pdf viewer"
+  (run-or-raise "acroread" '(:class "Acroread")))
+
+(defcommand java () ()
+  "eclipe"
+  (run-or-raise "/home/wizard/src/eclipse/eclipse" '(:class "Eclipse")))
 
                                         ;Turn on the modeline
 
@@ -79,6 +83,7 @@
 (define-key *top-map* (kbd "s-4") "firefox")
 (define-key *top-map* (kbd "s-8") "emacs")
 (define-key *top-map* (kbd "s-1") "urxvt")
+(define-key *top-map* (kbd "s-2") "java")
 (define-key *top-map* (kbd "s-3") "thunderbird")
 (define-key *top-map* (kbd "s-5") "pdf")
 
@@ -103,7 +108,7 @@
 
                                         ;Create some new virtual desktops (called groups in stumpwm):
 
-(dolist (desk (list "Default" "Doc" "Web" "Media" "Terms" "Work" "VM"))
+(dolist (desk (list "Default" "Doc" "Web" "Media" "Terms" "Work" "VM" "Java"))
   (run-commands (format nil "gnewbg ~a"  desk)))
 
 
@@ -120,7 +125,7 @@
 
 (define-frame-preference "Default"
     ;; frame raise lock (lock AND raise == jumpto)
-    (0 t   t :title "emacs"))
+    (0 t   t :class "Emacs"))
 
 (define-frame-preference "Doc"
     (0 t   t :class "Acroread"))
@@ -130,9 +135,12 @@
 
 (define-frame-preference "Media"
     (0 t   t :instance "aumix")
-    (0 t   t :class "MPlayer")
-    (0 t   t :class "Avidemux"))
+  (0 t   t :class "MPlayer")
+  (0 t   t :class "Avidemux"))
 
 (define-frame-preference "VM"
     (0 t t :class "VirtualBox"))
+
+(define-frame-preference "Java"
+    (0 t t :class "Eclipse"))
 
