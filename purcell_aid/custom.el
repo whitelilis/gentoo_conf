@@ -6,11 +6,10 @@
  '(ansi-color-faces-vector [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector (vector "#657b83" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#fdf6e3"))
  '(cua-enable-cua-keys nil)
- '(org-export-latex-packages-alist '(("" "CJKutf8" t)))
  '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
  '(custom-safe-themes (quote ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default)))
  '(fci-rule-color "#eee8d5")
- '(safe-local-variable-values (quote ((Syntax . ANSI-Common-Lisp) (Package X8664 :use CL) (Package . CCL) (ruby-compilation-executable . "ruby") (ruby-compilation-executable . "ruby1.8") (ruby-compilation-executable . "ruby1.9") (ruby-compilation-executable . "rbx") (ruby-compilation-executable . "jruby"))))
+ '(safe-local-variable-values (quote ((Package . CL-WHO) (Package . CL-FAD) (Syntax . COMMON-LISP) (Base . 10) (Syntax . ANSI-Common-Lisp) (Package X8664 :use CL) (Package . CCL) (ruby-compilation-executable . "ruby") (ruby-compilation-executable . "ruby1.8") (ruby-compilation-executable . "ruby1.9") (ruby-compilation-executable . "rbx") (ruby-compilation-executable . "jruby"))))
  '(session-use-package t nil (session)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -20,6 +19,8 @@
  )
 
 ;; wizard code start here
+;;; no desktop save
+(desktop-save-mode -1)
 ;; zoo
 (setq backup-directory-alist '(("." . "~/back")))
 
@@ -28,12 +29,16 @@
 (global-rainbow-delimiters-mode)
 
 ;; default use ccl
-(setq slime-default-lisp 'ccl)
+(setq slime-default-lisp 'sbcl)
 (global-set-key "\C-cs" 'slime-selector)
 (eval-after-load 'slime
   '(progn
      (add-to-list 'slime-lisp-implementations
 		  '(ccl ("ccl") :coding-system utf-8-unix))
+     (add-to-list 'slime-lisp-implementations
+		  '(ccl-http ("ccl" "-I" "/home/wizard/cl-http.image") :coding-system utf-8-unix))
+     (add-to-list 'slime-lisp-implementations
+                  '(sbcl ("sbcl") :coding-system utf-8-unix))
      (slime-setup '(slime-fancy slime-xref-browser slime-scratch))
      (setq slime-autodoc-use-multiline-p t)))
 
@@ -77,7 +82,8 @@
 ;;; org export to html, no sub-superscripts
 (eval-after-load 'org
   '(progn
-     (setq org-use-sub-superscripts nil)))
+     (setq org-use-sub-superscripts nil)
+     (setq org-export-with-toc nil)))
 
 (setq org-agenda-files (list "/home/wizard/src/github/org/work.org"
                              "/home/wizard/src/github/org/life.org"
@@ -117,7 +123,9 @@
         ispell-complete-word))
 (global-set-key [(control tab)] 'hippie-expand) ;hippie-expand is very good 
 
+;;; for auto-complete
+(setq ac-expand-on-auto-complete t)
+(setq ac-auto-start t)
 
-
-
-
+;;; for scheme
+(setq scheme-program-name "bigloo")

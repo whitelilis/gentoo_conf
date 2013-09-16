@@ -20,3 +20,5 @@ dev-lisp/sbcl doc source
 net-p2p/rtorrent debug daemon
 dev-lang/perl ithreads
 net-analyzer/mtr -gtk
+dev-scheme/racket  X cairo backtrace doc futures jit places plot threads
+dev-scheme/bigloo  ssl debug doc emacs java multimedia sqlite threads web

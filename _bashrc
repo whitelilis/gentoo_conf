@@ -58,6 +58,10 @@ new-repo (){
 	cd $repo && git init . && git config --bool core.bare true
 	cd -
 }
+eclipse (){
+	cd ~/src/eclipse
+	./eclipse
+}
 
 alias tda='java -jar /home/wizard/src/tda/tda.jar'
 alias work='mplayer ~/music/secret_garden/*.mp3'
