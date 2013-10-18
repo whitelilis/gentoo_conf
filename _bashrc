@@ -71,5 +71,11 @@ alias gpush='mv ~/.ssh/{config,c} && git push && mv ~/.ssh/{c,config}'
 
 alias ll='ls -l'
 
+
+###### fcitx ######
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=”@im=fcitx”
+
 ###### private #####
 source ~/.privaterc
