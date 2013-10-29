@@ -1,0 +1,38 @@
+# envs
+LC_ALL="zh_CN.UTF-8"
+LANG="en_US.UTF-8"
+
+XMODIFIERS="@im=fcitx"
+XIM="fcitx"
+XIM_PROGRAM="fcitx"
+
+export LC_ALL LANG XMODIFIERS XIM XIM_PROGRAM
+xset +fp /usr/share/fonts/wqy-bitmapfont
+
+# start up
+#exec tor &
+#exec privoxy /etc/privoxy &
+exec urxvtd -q -f -o &
+exec fcitx -d &
+# exec wmstickynotes &
+# exec conky
+
+
+xsetroot -cursor_name left_ptr
+xsetroot -name "$(date)"
+
+
+#X_ENV="~/stumpwm_sbcl" 
+X_ENV="~/new_stumpwm" 
+#X_ENV="xmonad" 
+#X_ENV="fvwm" 
+#X_ENV="dwm" 
+
+# Wall Page
+# exec xpmroot ~/.fvwm/back.png
+
+# dwm ENV
+if [ $X_ENV ]; then
+	export AWT_TOOLKIT=MToolkit # for java gui
+	exec ${X_ENV}
+fi  
