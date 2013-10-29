@@ -1,81 +1,212 @@
-# /etc/skel/.bashrc
-#
-# This file is sourced by all *interactive* bash shells on startup,
-# including some apparently interactive shells such as scp and rcp
-# that can't tolerate any output.  So make sure this doesn't display
-# anything or bad things will happen !
+source /etc/profile
 
 
-# Test for an interactive shell.  There is no need to set anything
-# past this point for scp and rcp, and it's important to refrain from
-# outputting anything in those cases.
-if [[ $- != *i* ]] ; then
-	# Shell is non-interactive.  Be done now!
-	return
-fi
+CVSROOT=/mnt/RedHat/cvs
+SVN_ROOT=svn://127.0.0.1
+MOZ_DISABLE_PANGO=1
+EDITOR=vim
+VISUAL=vim
+#JAVA_HOME=/usr/programming/jdk1.6.0_02
+JAVA_HOME=/usr/lib/jvm/sun-jdk-1.6
+#JAVA_HOME=/usr/programming/j2sdk1.4.2_17/
+CLASSPATH=.:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar
+
+for jar in $(find /usr/programming/jars/ -name '*.jar');do
+	CLASSPATH=$CLASSPATH:$jar
+done
+
+PATH=~/tools:/opt/firefox:/opt/texlive/2005/bin/i386-linux/:~/pieces/combine/gc_trunk:$PATH:
+PATH=/usr/kde/3.5/bin:$PATH
+PATH=/usr/lib/maven/bin:$PATH
+export JAVA_HOME PATH CLASSPATH CVSROOT SVN_ROOT MOZ_DISABLE_PANGO EDITOR VISUAL 
+
+BIBINPUTS=.:/home/wizard/programming/tex/mybibs
+export BIBINPUTS
+
+[[ -f /etc/profile.d/bash-completion ]] && source /etc/profile.d/bash-completion
+
+# xmodmap ~/.xmodmap
+
+CENV="env LC_ALL=C "
+
+alias iconv2utf8="iconv -c -f gb18030 -t utf8 "
+alias iconv2gbk="iconv -c -f utf8 -t gb18030 "
+alias updateTables="rake db:migrate VERSION=0 && rake db:migrate"
+alias freemind="sh ~/other_tools/freemind/freemind.sh"
+alias ss="startx"
+alias xargs="xargs -I '{}'"
+alias svnbin2txt="svn pd svn:mime-type" 
+alias scat="/usr/programming/apache-tomcat-5.5.27/bin/startup.sh"
+alias kcat="/usr/programming/apache-tomcat-5.5.27/bin/shutdown.sh"
+alias rcat="kcat && scat"
+alias fir2="mplayer -loop 0 -vo null /mnt/data/mov/fir/2/[^A]*"
+alias l="ls"
+alias ll="ls -l"
+alias la="ls -a"
+alias xpdf="$CENV xpdf"  # dirty fix xpdf speed
+alias glade="$CENV glade-3"  
+alias scilab="$CENV ~/somebins/scilab-5.1.1/bin/scilab"
+
+# For colourful man pages (CLUG-Wiki style)
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+# for fun
+
+#fun(){
+	#find /mnt/data/mov/fir/2/ -not -name 'AVS*' -print0 | xargs ls
+#}
+
+# for svn create project
+
+mksvndir(){
+	mkdir -p $1/{trunk,tags,branches}
+	svn import $1 $SVN_ROOT/$1 -m "Init $i" && rm -rf $1 && svn co $SVN_ROOT/$1/trunk ${1}_trunk
+	echo "$1 initiated OK."
+}
+buildstruts2(){
+	cd ~/programming
+	tar cvzf struts2_skel.tar.gz struts2_skel
+}
+mkstruts2dir(){
+	unset pro skelname proskelname tarball packagename
+
+	pro=$1
+	skelname=SKEL
+	proskelname=PRONAME
+	tarball=~/programming/struts2_skel.tar.gz
+	packagename=cn.cublog.drunkedcat.$1
+
+	tar xvf $tarball
+	mv struts2_skel $pro
+	grep -R -l $skelname $pro | xargs -I '{}' sed -i -e "s/$skelname/$packagename/g" {}
+	grep -R -l $proskelname $pro | xargs -I '{}' sed -i -e "s/$proskelname/$pro/g" {} 
+	make -C $pro/WEB-INF/src/java
+	echo "$pro init ok."
+	unset pro skelname proskelname tarball packagename
+}
+
+# random encry pdf file
+pdfencrypt(){
+	password=$(whoami)$(perl -e "print rand()")$(date --iso-8601)
+	mv $1 raw_$1
+	pdftk raw_$1 output encry_$1 owner_pw $password
+	echo "$1 encrypted to encry_$1, raw_$1 is backup."
+}
+
+# use two functions to toggle, the first function is default action
+toggle(){
+	if [ $kkkkk ] ; then
+		$2
+		unset kkkkk
+	else
+		export kkkkk=1
+		$1
+	fi
+}
+# $$a  must be :   eval echo $`echo $a`
+# this is better:  echo ${x[$pp]}
+toggle2(){
+	flag_name=toggle_$3
+	if [ ${toggle[$flag_name]} ] ; then
+		$2
+		unset toggle[$flag_name]
+	else
+		export toggle[$flag_name]=1
+		$1
+	fi
+}
+kk_on(){
+	echo on
+}
+kk_off(){
+	echo off
+}
+
+afterX(){
+	xpmroot ~/.fvwm/back.png &
+	conky &
+	~/tools/status.bar
+}
+easyandroid(){
+	mkdir $1
+	android create project --target 2 --package cn.cublog.drunkedcat.$1 --name $1 --activity $(echo $1 | sed -e 's/^\([a-z]\)/\u\1/') --path $1
+}
+eg(){
+	git init
+	git add .
+	git commit -a -m $(pwd | sed -e  's@.*/\([^/]\+\)@\1@')
+}
+
+sfeg(){
+	mkdir $1
+	cd $1
+	git init
+	git config user.name "whitelilis"
+	git config user.email "whitelils@users.sourceforge.net"
+	git remote add origin ssh://whitelilis@$1.git.sourceforge.net/gitroot/$1/$1
+	git config branch.master.remote origin
+	git config branch.master.merge refs/heads/master
+	echo 'whitelilis@gmail.com' > email
+	git add email
+	git commit email -m 'my email'
+	git push origin master
+}
+
+#set -x
+#set -o vi
+#export CDPATH=.:~
+export UMLGRAPH_HOME=/usr/local/lib/umlgraph
+
+export PERL5LIB=~/programming/gits/whitelilisnaive/perl_wizard
 
 
-source ~/git-completion.bash
+# for admin
+# for history
+shopt -s histappend # append all teminals' history
+PROMPT_COMMEND='history -n; history -a' # add all history to every terminal
+HISTSIZE=100000
+HISTFILESIZE=100000
+HISTTIMEFORMAT='%a %T '
 
-# Put your fun stuff here.
+export PROMPT_COMMEND HISTFILESIZE HISTSIZE HISTTIMEFORMAT
 
-export XMODIFIERS="@im=fcitx"
-export XIM=fcitx
-export XIM_PROGRAM=fcitx
-export GTK_IM_MODULE=xim
-export QT_IM_MODULE=xim
-export PATH="/opt/texlive/2005/bin/i386-linux:/opt/android-sdk-update-manager/platform-tools:~/tools:~/build/bin:$PATH"
+sc(){
+	screen -D -RR
+}
 
-
-export LC_ALL="zh_CN.UTF-8"
-alias ss='startx'
-#alias xpdf="env LC_ALL=C xpdf" 
-
-
-export CLASSPATH=.:/home/wizard/src/hadoop/hadoop-0.20.2/hadoop-0.20.2-core.jar
-
-# for screen
-export EDITOR=vi
-alias SWITCH-EDITOR-GUI='export EDITOR=vi' # then just type SWITCH-EDITOR-GUI and editor will be set to GUI
-alias SWITCH-EDITOR-CUI='export EDITOR=vi' # then just type SWITCH-EDITOR-CUI and editor will be set to CUI
+for f in ~/.private ~/.work
+do
+	if [ -e $f ]
+	then
+		source $f
+	fi
+done
 
 d (){
 	pdsh -R exec -u 17 -f 5 -w ^$@
 }
-
-
 longd (){
 	pdsh -R exec -u 300 -f 10 -w ^$@
 }
-
 pdf (){
 	acroread "$@" 2>/dev/null
 }
-
 new-repo (){
 	repo=$1
 	mkdir $repo
 	cd $repo && git init . && git config --bool core.bare true
 	cd -
 }
-eclipse (){
-	cd ~/src/eclipse
-	./eclipse
-}
 
 alias tda='java -jar /home/wizard/src/tda/tda.jar'
 alias work='mplayer ~/music/secret_garden/*.mp3'
 alias R='LC_ALL=C R'
 alias sc="screen -D -RR"
-alias gpush='mv ~/.ssh/{config,c} && git push && mv ~/.ssh/{c,config}'
-
-alias ll='ls -l'
 
 
-###### fcitx ######
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=”@im=fcitx”
-
-###### private #####
-source ~/.privaterc
