@@ -209,4 +209,7 @@ alias work='mplayer ~/music/secret_garden/*.mp3'
 alias R='LC_ALL=C R'
 alias sc="screen -D -RR"
 
+proxy(){
+	sshpass -p mo3fllof ssh -fnCTN -D 7070 cnssh@192.249.63.92 -p 25
+}
 
