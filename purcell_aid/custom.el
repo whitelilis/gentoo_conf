@@ -79,12 +79,23 @@
 ;;; org export to html, no sub-superscripts
 (eval-after-load 'org
   '(progn
+     (define-key global-map "\C-cc" 'org-capture)
+     (setq org-default-notes-file (concat org-directory "/tasks.org"))
+
+     (setq org-capture-templates
+           '(("t" "Todo" entry (file+datetree "~/org/gtd.org")
+              "* TODO %?\n  %i\n  %a")
+             ("k" "Knowledge" entry (file+headline "~/org/journal.org" "Knowledge")
+              "* %?\n %U\n  %i\n  %a")
+             ("i" "Idea" entry (file+headline "~/org/idea.org" "Idea")
+              "* %?\nEntered on %U\n  %i\n  %a")))
+
+
+     
      (setq org-use-sub-superscripts nil)
      (setq org-export-with-toc nil)))
 
-(setq org-agenda-files (list "/home/wizard/src/github/org/work.org"
-                             "/home/wizard/src/github/org/life.org" 
-                             "/home/wizard/src/github/org/issue.org"))
+(setq org-agenda-files (list "/home/wizard/org"))
 (setq org-return-follows-link t)
 
 
