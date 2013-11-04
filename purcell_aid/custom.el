@@ -9,7 +9,10 @@
  '(custom-enabled-themes (quote (sanityinc-solarized-dark)))
  '(custom-safe-themes (quote ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default)))
  '(fci-rule-color "#eee8d5")
- '(safe-local-variable-values (quote ((Package . CL-WHO) (Package . CL-FAD) (Syntax . COMMON-LISP) (Base . 10) (Syntax . ANSI-Common-Lisp) (Package X8664 :use CL) (Package . CCL) (ruby-compilation-executable . "ruby") (ruby-compilation-executable . "ruby1.8") (ruby-compilation-executable . "ruby1.9") (ruby-compilation-executable . "rbx") (ruby-compilation-executable . "jruby"))))
+; '(menu-bar-mode nil)
+; '(global-linum-mode t)
+ '(org-export-latex-packages-alist '(("" "CJKutf8" t)))
+ '(safe-local-variable-values (quote ((Package . CL-USER) (Syntax . COMMON-LISP) (Syntax . ANSI-Common-Lisp) (Base . 10) (Package . CCL) (ruby-compilation-executable . "ruby") (ruby-compilation-executable . "ruby1.8") (ruby-compilation-executable . "ruby1.9") (ruby-compilation-executable . "rbx") (ruby-compilation-executable . "jruby"))))
  '(session-use-package t nil (session)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -19,8 +22,6 @@
  )
 
 ;; wizard code start here
-;;; no desktop save
-(desktop-save-mode -1)
 ;; zoo
 (setq backup-directory-alist '(("." . "~/back")))
 
@@ -28,17 +29,12 @@
 ;; rainbow-delimiters-mode is good, add for all
 (global-rainbow-delimiters-mode)
 
-;; default use ccl
+(setq slime-autodoc-use-multiline-p t)
+;; default use sbcl
 (setq slime-default-lisp 'sbcl)
 (global-set-key "\C-cs" 'slime-selector)
 (eval-after-load 'slime
   '(progn
-     (add-to-list 'slime-lisp-implementations
-		  '(ccl ("ccl") :coding-system utf-8-unix))
-     (add-to-list 'slime-lisp-implementations
-		  '(ccl-http ("ccl" "-I" "/home/wizard/cl-http.image") :coding-system utf-8-unix))
-     (add-to-list 'slime-lisp-implementations
-                  '(sbcl ("sbcl") :coding-system utf-8-unix))
      (slime-setup '(slime-fancy slime-xref-browser slime-scratch))
      (setq slime-autodoc-use-multiline-p t)))
 
@@ -49,7 +45,7 @@
 (display-time)
 
 ;; larger font
-                                        ;(increment-default-font-height 20)
+(increment-default-font-height 20)
 
 
 ;;; for perl mode
@@ -59,9 +55,9 @@
   (paredit-mode)
   (setq cperl-indent-level 8)
   (setq cperl-continued-statement-offset 0)
-                                        ;  (setq cperl-extra-newline-before-brace t)
-                                        ;  (set-face-background 'cperl-array-face "blue")
-                                        ;  (set-face-background 'cperl-hash-face "red")
+;  (setq cperl-extra-newline-before-brace t)
+;  (set-face-background 'cperl-array-face "blue")
+;  (set-face-background 'cperl-hash-face "red")
   )
 
 
@@ -74,10 +70,11 @@
 (global-set-key [(control x) (w)]  'change-pr)
 
 ;;; font
-(set-default-font "文泉驿等宽正黑-12")
-                                        ;(set-face-attribute 'default nil :font "文泉驿等宽微米黑-12") ; very good width
-                                        ;(set-face-attribute 'default nil :font "Monaco-12")  ; good for programming
-                                        ;(set-face-attribute 'default nil :height 120)
+(set-default-font "文泉驿等宽微米黑-11")
+;(set-face-attribute 'default nil :font "文泉驿等宽正黑-12") ; very good width
+(set-face-attribute 'default nil :font "文泉驿等宽微米黑-11") ; very good width
+;(set-face-attribute 'default nil :font "Monaco-12")  ; good for programming
+;(set-face-attribute 'default nil :height 120)
                                         ; The value is in 1/10pt, so 100 will give you 10pt, etc.
 ;;; org export to html, no sub-superscripts
 (eval-after-load 'org
@@ -86,9 +83,10 @@
      (setq org-export-with-toc nil)))
 
 (setq org-agenda-files (list "/home/wizard/src/github/org/work.org"
-                             "/home/wizard/src/github/org/life.org"
-                             "/home/wizard/todo.org"
+                             "/home/wizard/src/github/org/life.org" 
                              "/home/wizard/src/github/org/issue.org"))
+(setq org-return-follows-link t)
+
 
 ;;; rebind
 (global-set-key [(control s)] '(lambda ()
@@ -123,9 +121,7 @@
         ispell-complete-word))
 (global-set-key [(control tab)] 'hippie-expand) ;hippie-expand is very good 
 
-;;; for auto-complete
-(setq ac-expand-on-auto-complete t)
-(setq ac-auto-start t)
 
 ;;; for scheme
-(setq scheme-program-name "bigloo")
+(setq scheme-program-name "larceny")
+;;; for auto-complete
