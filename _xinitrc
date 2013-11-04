@@ -36,3 +36,4 @@ if [ $X_ENV ]; then
 	export AWT_TOOLKIT=MToolkit # for java gui
 	exec ${X_ENV}
 fi  
+xscreensaver &
