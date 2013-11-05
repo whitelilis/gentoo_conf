@@ -23,7 +23,7 @@ xsetroot -name "$(date)"
 
 
 #X_ENV="~/stumpwm_sbcl" 
-X_ENV="~/new_stumpwm" 
+X_ENV="~/stumpwm" 
 #X_ENV="xmonad" 
 #X_ENV="fvwm" 
 #X_ENV="dwm" 
