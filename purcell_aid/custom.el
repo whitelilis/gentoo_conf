@@ -85,8 +85,14 @@
      (setq org-capture-templates
            '(("t" "Todo" entry (file+datetree "~/org/gtd.org")
               "* TODO %?\n  %i\n  %a")
-             ("k" "Knowledge" entry (file+headline "~/org/journal.org" "Knowledge")
-              "* %?\n %U\n  %i\n  %a")
+             ("h" "Hadoop" entry (file+olp "~/org/journal.org" "Knowledge" "hadoop")
+              "* %? \n %U\n %i\n  %a")
+             ("b" "Hbase" entry (file+olp "~/org/journal.org" "Knowledge" "hbase")
+              "* %? \n %U\n %i\n  %a")
+             ("l" "Linux" entry (file+olp "~/org/journal.org" "Knowledge" "linux")
+              "* %? \n %U\n %i\n  %a")
+             ("r" "RabbitMQ" entry (file+olp "~/org/journal.org" "Knowledge" "rabbitMQ")
+              "* %? \n %U\n %i\n  %a")
              ("i" "Idea" entry (file+headline "~/org/idea.org" "Idea")
               "* %?\nEntered on %U\n  %i\n  %a")))
 
