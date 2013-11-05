@@ -95,6 +95,8 @@
               "* %? \n %U\n %i\n  %a")
              ("s" "LISP" entry (file+olp "~/org/journal.org" "Knowledge" "lisp")
               "* %? \n %U\n %i\n  %a")
+             ("m" "misc" entry (file+olp "~/org/journal.org" "Knowledge" "misc")
+              "* %? \n %U\n %i\n  %a")
              ("i" "Idea" entry (file+headline "~/org/idea.org" "Idea")
               "* %?\nEntered on %U\n  %i\n  %a")))
 
