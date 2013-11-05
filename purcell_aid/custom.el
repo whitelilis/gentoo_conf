@@ -45,7 +45,7 @@
 (display-time)
 
 ;; larger font
-(increment-default-font-height 20)
+;(increment-default-font-height 20)
 
 
 ;;; for perl mode
@@ -94,6 +94,8 @@
              ("r" "RabbitMQ" entry (file+olp "~/org/journal.org" "Knowledge" "rabbitMQ")
               "* %? \n %U\n %i\n  %a")
              ("s" "LISP" entry (file+olp "~/org/journal.org" "Knowledge" "lisp")
+              "* %? \n %U\n %i\n  %a")
+             ("e" "Emacs" entry (file+olp "~/org/journal.org" "Knowledge" "emacs")
               "* %? \n %U\n %i\n  %a")
              ("m" "misc" entry (file+olp "~/org/journal.org" "Knowledge" "misc")
               "* %? %^g\n %U\n %i\n  %a")
