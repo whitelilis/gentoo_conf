@@ -7,7 +7,7 @@ MOZ_DISABLE_PANGO=1
 EDITOR=vim
 VISUAL=vim
 #JAVA_HOME=/usr/programming/jdk1.6.0_02
-JAVA_HOME=/usr/lib/jvm/sun-jdk-1.6
+JAVA_HOME=/usr/lib/jvm/jdk1.6.0_45
 #JAVA_HOME=/usr/programming/j2sdk1.4.2_17/
 CLASSPATH=.:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar
 
