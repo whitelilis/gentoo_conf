@@ -6,9 +6,23 @@ SVN_ROOT=svn://127.0.0.1
 MOZ_DISABLE_PANGO=1
 EDITOR=vim
 VISUAL=vim
-#JAVA_HOME=/usr/programming/jdk1.6.0_02
-JAVA_HOME=/usr/lib/jvm/jdk1.6.0_45
-#JAVA_HOME=/usr/programming/j2sdk1.4.2_17/
+
+
+home_path(){
+	check_path=$1
+	aim_var=$2
+	if [ -d $check_path ]
+	then
+		export $aim_var=$check_path
+		export PATH=$check_path/bin:$PATH
+	fi
+}
+
+home_path /opt/*jdk*   JAVA_HOME
+home_path /opt/*maven* MAVEN_HOME
+home_path /opt/*ant*   ANT_HOME
+
+
 CLASSPATH=.:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar
 
 if [ -d /usr/programming/jars ]
@@ -19,9 +33,8 @@ then
 fi
 
 PATH=~/tools:/opt/firefox:/opt/texlive/2005/bin/i386-linux/:~/pieces/combine/gc_trunk:$PATH:
-PATH=/usr/kde/3.5/bin:$PATH
-PATH=/usr/lib/maven/bin:$PATH
-export JAVA_HOME PATH CLASSPATH CVSROOT SVN_ROOT MOZ_DISABLE_PANGO EDITOR VISUAL 
+
+export PATH CLASSPATH CVSROOT SVN_ROOT MOZ_DISABLE_PANGO EDITOR VISUAL 
 
 BIBINPUTS=.:/home/wizard/programming/tex/mybibs
 export BIBINPUTS
