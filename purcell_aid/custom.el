@@ -84,23 +84,23 @@
 
      (setq org-capture-templates
            '(("t" "Todo" entry (file+datetree "~/org/gtd.org")
-              "* TODO %?\n  %i\n  %a")
+              "* TODO %?\n  %i\n")
              ("h" "Hadoop" entry (file+headline "~/org/journal.org" "hadoop")
-              "* %? \n %U\n %i\n  %a")
+              "* %? \n %U\n %i\n")
              ("b" "Hbase" entry (file+headline "~/org/journal.org" "hbase")
-              "* %? \n %U\n %i\n  %a")
+              "* %? \n %U\n %i\n")
              ("l" "Linux" entry (file+headline "~/org/journal.org" "linux")
-              "* %? \n %U\n %i\n  %a")
+              "* %? \n %U\n %i\n")
              ("r" "RabbitMQ" entry (file+headline "~/org/journal.org" "rabbitMQ")
-              "* %? \n %U\n %i\n  %a")
+              "* %? \n %U\n %i\n")
              ("s" "LISP" entry (file+headline "~/org/journal.org" "lisp")
-              "* %? \n %U\n %i\n  %a")
+              "* %? \n %U\n %i\n")
              ("e" "Emacs" entry (file+headline "~/org/journal.org" "emacs")
-              "* %? \n %U\n %i\n  %a")
+              "* %? \n %U\n %i\n")
              ("m" "misc" entry (file+headline "~/org/journal.org" "misc")
-              "* %? %^g\n %U\n %i\n  %a")
+              "* %? %^g\n %U\n %i\n")
              ("i" "Idea" entry (file+headline "~/org/idea.org" "Idea")
-              "* %?\nEntered on %U\n  %i\n  %a")))
+              "* %?\nEntered on %U\n  %i\n")))
 
 
      
