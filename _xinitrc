@@ -8,6 +8,7 @@ XIM_PROGRAM="fcitx"
 
 export LC_ALL LANG XMODIFIERS XIM XIM_PROGRAM
 xset +fp /usr/share/fonts/wqy-bitmapfont
+xset +fp /usr/share/fonts/wqy-microhei
 
 # start up
 #exec tor &
