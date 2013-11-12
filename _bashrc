@@ -11,9 +11,12 @@ JAVA_HOME=/usr/lib/jvm/jdk1.6.0_45
 #JAVA_HOME=/usr/programming/j2sdk1.4.2_17/
 CLASSPATH=.:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar
 
-for jar in $(find /usr/programming/jars/ -name '*.jar');do
-	CLASSPATH=$CLASSPATH:$jar
-done
+if [ -d /usr/programming/jars ]
+then
+	for jar in $(find /usr/programming/jars/ -name '*.jar');do
+		CLASSPATH=$CLASSPATH:$jar
+	done
+fi
 
 PATH=~/tools:/opt/firefox:/opt/texlive/2005/bin/i386-linux/:~/pieces/combine/gc_trunk:$PATH:
 PATH=/usr/kde/3.5/bin:$PATH
@@ -210,6 +213,7 @@ alias R='LC_ALL=C R'
 alias sc="screen -D -RR"
 
 proxy(){
-	sshpass -p mo3fllof ssh -fnCTN -D 7070 cnssh@192.249.63.92 -p 25
+	sshpass -p freessh ssh -fnCTN -D 7070 cnssh@192.228.104.237 -p 25
+	ps ux | grep 7070
 }
 
