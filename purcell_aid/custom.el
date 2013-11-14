@@ -104,8 +104,22 @@
              ("m" "misc" entry (file+headline "~/org/journal.org" "misc")
               "* %? %^g\n %U\n %i\n")))
 
+     ;; only use file::linenumber link to exactly go to where I want, change from
+     ;; http://lists.gnu.org/archive/html/emacs-orgmode/2012-02/msg00706.html
+     (defun org-file-lineno-store-link()
+       (let* ((link (format "file:%s::%d" (buffer-file-name) 
+                            (line-number-at-pos))))
+         (org-store-link-props
+          :type "file"
+          :link link)))
+     (setq org-store-link-functions (list 'org-file-lineno-store-link))
+     (defun lineno-goto (open-store-arg)
+       (message "length:%s" open-store-arg)
+       (goto-line (string-to-int open-store-arg)))
+     ;; use the same simple line goto function
+     (setq org-execute-file-search-functions (list 'lineno-goto))
+     ;; end lineno hack
 
-     
      (setq org-use-sub-superscripts nil)
      (setq org-export-with-toc nil)))
 
