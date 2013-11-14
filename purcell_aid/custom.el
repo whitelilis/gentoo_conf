@@ -88,7 +88,7 @@
              ("w" "Waiting" entry (file+datetree "~/org/gtd.org")
               "* WAITING [#%^{property|B|A|C}]  %?\n %^t\n %i\n")
              ("i" "Idea/someday" entry (file+datetree "~/org/gtd.org")
-              "* SOMEDAY  %?\n")
+              "* SOMEDAY [#C] %?\n")
              ("h" "Hadoop" entry (file+headline "~/org/journal.org" "hadoop")
               "* %? \n %U\n %i\n")
              ("b" "Hbase" entry (file+headline "~/org/journal.org" "hbase")
