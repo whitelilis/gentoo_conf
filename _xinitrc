@@ -24,7 +24,13 @@ xsetroot -name "$(date)"
 
 
 #X_ENV="~/stumpwm_sbcl" 
-X_ENV="~/stumpwm" 
+sys=$(uname -a | awk '{print $12}')
+if [ $sys == 'x86_64' ]
+then
+	X_ENV="~/stumpwm64"
+else
+	X_ENV="~/stumpwm"
+fi
 #X_ENV="xmonad" 
 #X_ENV="fvwm" 
 #X_ENV="dwm" 
