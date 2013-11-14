@@ -84,7 +84,9 @@
 
      (setq org-capture-templates
            '(("t" "Todo" entry (file+datetree "~/org/gtd.org")
-              "* TODO %?\n  %i\n")
+              "* TODO [%^{property|#B|#A|#C}]  %?\n  %i\n")
+             ("w" "Waiting" entry (file+datetree "~/org/gtd.org")
+              "* WAITING [%^{property|#B|#A|#C}]  %?\n %^t\n %i\n")
              ("h" "Hadoop" entry (file+headline "~/org/journal.org" "hadoop")
               "* %? \n %U\n %i\n")
              ("b" "Hbase" entry (file+headline "~/org/journal.org" "hbase")
