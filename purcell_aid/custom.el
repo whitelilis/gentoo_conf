@@ -120,6 +120,22 @@
      (setq org-execute-file-search-functions (list 'lineno-goto))
      ;; end lineno hack
 
+     ;; for month/week report
+     ;; study from http://jcardente.blogspot.com/2010/06/org-mode-hack-tasks-done-last-month.html
+     (defun wizard/closed-tasks-between (start end)
+       (org-tags-view nil
+                      (concat
+                       "TODO=\"DONE\""
+                       (format "+CLOSED>=\"[%s]\"" start)
+                       (format "+CLOSED<=\"[%s]\"" end))))
+     (defun last-7-day ()
+       (list (format-time-string "%Y-%m-%d" (time-subtract (current-time) (days-to-time 6)))
+             (format-time-string "%Y-%m-%d" (time-add      (current-time) (days-to-time 1)))))
+     (defun last-7-day-report ()
+       (interactive)
+       (apply 'wizard/closed-tasks-between (last-7-day)))
+     ;; end report stuff
+
      (setq org-use-sub-superscripts nil)
      (setq org-export-with-toc nil)))
 
