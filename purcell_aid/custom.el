@@ -82,6 +82,13 @@
      (define-key global-map "\C-cc" 'org-capture)
      (setq org-default-notes-file (concat org-directory "/tasks.org"))
 
+     (setq org-todo-keyword-faces
+           '(("TODO" . org-warning)
+             ("STARTED" . "yellow")
+             ("DONE" . org-done)
+             ("SOMEDAY" . "green")
+             ("CANCELED" . (:foreground "blue" :weight bold))))
+     
      (setq org-capture-templates
            '(("t" "Todo" entry (file+datetree "~/org/gtd.org")
               "* TODO [#%^{property|B|A|C}]  %?\n  %i\n")
