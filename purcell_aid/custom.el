@@ -82,6 +82,7 @@
 ;;; org export to html, no sub-superscripts
 (eval-after-load 'org
   '(progn
+     (setq org-agenda-start-with-log-mode t)
      (define-key global-map "\C-cc" 'org-capture)
      (setq org-default-notes-file (concat org-directory "/tasks.org"))
 
