@@ -31,10 +31,13 @@
 
 (setq slime-autodoc-use-multiline-p t)
 ;; default use sbcl
-(setq slime-default-lisp 'sbcl)
+(setq slime-default-lisp 'ccl)
 (global-set-key "\C-cs" 'slime-selector)
 (eval-after-load 'slime
   '(progn
+     (when (executable-find "ccl")
+       (add-to-list 'slime-lisp-implementations
+                    '(ccl ("ccl") :coding-system utf-8-unix)))
      (slime-setup '(slime-fancy slime-xref-browser slime-scratch))
      (setq slime-autodoc-use-multiline-p t)))
 
@@ -95,21 +98,7 @@
              ("w" "Waiting" entry (file+datetree "~/org/gtd.org")
               "* WAITING [#%^{property|B|A|C}]  %?\n %^t\n %i\n")
              ("i" "Idea/someday" entry (file+datetree "~/org/gtd.org")
-              "* SOMEDAY [#C] %?\n")
-             ("h" "Hadoop" entry (file+headline "~/org/journal.org" "hadoop")
-              "* %? \n %U\n %i\n")
-             ("b" "Hbase" entry (file+headline "~/org/journal.org" "hbase")
-              "* %? \n %U\n %i\n")
-             ("l" "Linux" entry (file+headline "~/org/journal.org" "linux")
-              "* %? \n %U\n %i\n")
-             ("r" "RabbitMQ" entry (file+headline "~/org/journal.org" "rabbitMQ")
-              "* %? \n %U\n %i\n")
-             ("s" "LISP" entry (file+headline "~/org/journal.org" "lisp")
-              "* %? \n %U\n %i\n")
-             ("e" "Emacs" entry (file+headline "~/org/journal.org" "emacs")
-              "* %? \n %U\n %i\n")
-             ("m" "misc" entry (file+headline "~/org/journal.org" "misc")
-              "* %? %^g\n %U\n %i\n")))
+              "* SOMEDAY [#C] %?\n")))
 
      ;; only use file::linenumber link to exactly go to where I want, change from
      ;; http://lists.gnu.org/archive/html/emacs-orgmode/2012-02/msg00706.html
@@ -119,12 +108,12 @@
          (org-store-link-props
           :type "file"
           :link link)))
-     (setq org-store-link-functions (list 'org-file-lineno-store-link))
+     ;(setq org-store-link-functions (list 'org-file-lineno-store-link))
      (defun lineno-goto (open-store-arg)
        (message "length:%s" open-store-arg)
        (goto-line (string-to-int open-store-arg)))
      ;; use the same simple line goto function
-     (setq org-execute-file-search-functions (list 'lineno-goto))
+     ;(setq org-execute-file-search-functions (list 'lineno-goto))
      ;; end lineno hack
 
      ;; for month/week report
@@ -135,12 +124,12 @@
                        "TODO=\"DONE\""
                        (format "+CLOSED>=\"[%s]\"" start)
                        (format "+CLOSED<=\"[%s]\"" end))))
-     (defun last-7-day ()
-       (list (format-time-string "%Y-%m-%d" (time-subtract (current-time) (days-to-time 6)))
+     (defun last-n-day (days)
+       (list (format-time-string "%Y-%m-%d" (time-subtract (current-time) (days-to-time days)))
              (format-time-string "%Y-%m-%d" (time-add      (current-time) (days-to-time 1)))))
-     (defun last-7-day-report ()
-       (interactive)
-       (apply 'wizard/closed-tasks-between (last-7-day)))
+     (defun last-7-day-report (days)
+       (interactive (list (read-number "Days:" 6)))
+       (apply 'wizard/closed-tasks-between (last-n-day days)))
      ;; end report stuff
 
      (setq org-use-sub-superscripts nil)
