@@ -38,10 +38,10 @@ fi
 # Wall Page
 # exec xpmroot ~/.fvwm/back.png
 
+xscreensaver -no-splash & 
+
 # dwm ENV
 if [ $X_ENV ]; then
 	export AWT_TOOLKIT=MToolkit # for java gui
 	exec ${X_ENV}
 fi  
-(sleep 120 ; xscreensaver) &
-
