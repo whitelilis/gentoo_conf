@@ -80,16 +80,16 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 # for svn create project
 
-mksvndir(){
+function mksvndir(){
 	mkdir -p $1/{trunk,tags,branches}
 	svn import $1 $SVN_ROOT/$1 -m "Init $i" && rm -rf $1 && svn co $SVN_ROOT/$1/trunk ${1}_trunk
 	echo "$1 initiated OK."
 }
-buildstruts2(){
+function buildstruts2(){
 	cd ~/programming
 	tar cvzf struts2_skel.tar.gz struts2_skel
 }
-mkstruts2dir(){
+function mkstruts2dir(){
 	unset pro skelname proskelname tarball packagename
 
 	pro=$1
@@ -108,7 +108,7 @@ mkstruts2dir(){
 }
 
 # random encry pdf file
-pdfencrypt(){
+function pdfencrypt(){
 	password=$(whoami)$(perl -e "print rand()")$(date --iso-8601)
 	mv $1 raw_$1
 	pdftk raw_$1 output encry_$1 owner_pw $password
@@ -116,7 +116,7 @@ pdfencrypt(){
 }
 
 # use two functions to toggle, the first function is default action
-toggle(){
+function toggle(){
 	if [ $kkkkk ] ; then
 		$2
 		unset kkkkk
@@ -127,7 +127,7 @@ toggle(){
 }
 # $$a  must be :   eval echo $`echo $a`
 # this is better:  echo ${x[$pp]}
-toggle2(){
+function toggle2(){
 	flag_name=toggle_$3
 	if [ ${toggle[$flag_name]} ] ; then
 		$2
@@ -144,22 +144,22 @@ kk_off(){
 	echo off
 }
 
-afterX(){
+function afterX(){
 	xpmroot ~/.fvwm/back.png &
 	conky &
 	~/tools/status.bar
 }
-easyandroid(){
+function easyandroid(){
 	mkdir $1
 	android create project --target 2 --package cn.cublog.drunkedcat.$1 --name $1 --activity $(echo $1 | sed -e 's/^\([a-z]\)/\u\1/') --path $1
 }
-eg(){
+function eg(){
 	git init
 	git add .
 	git commit -a -m $(pwd | sed -e  's@.*/\([^/]\+\)@\1@')
 }
 
-sfeg(){
+function sfeg(){
 	mkdir $1
 	cd $1
 	git init
@@ -192,7 +192,7 @@ HISTTIMEFORMAT='%a %T '
 
 export PROMPT_COMMEND HISTFILESIZE HISTSIZE HISTTIMEFORMAT
 
-sc(){
+function sc(){
 	screen -D -RR
 }
 
@@ -225,8 +225,7 @@ alias work='mplayer ~/music/secret_garden/*.mp3'
 alias R='LC_ALL=C R'
 alias sc="screen -D -RR"
 
-proxy(){
-	sshpass -p freessh ssh -fnCTN -D 7070 cnssh@192.228.104.237 -p 25
+function proxy(){
+	sshpass -p btssh.com ssh -fnCTN -D 7070 btssh@192.228.104.237 -p 25
 	ps ux | grep 7070
 }
-
