@@ -1,4 +1,3 @@
-
 ;;; The following lines added by ql:add-to-init-file:
 #-quicklisp
 (let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp" (user-homedir-pathname))))
@@ -8,7 +7,8 @@
 
 
 ;(proclaim '(optimize (debug 3)))
-
+; for preserve bad optimize
+(setf CCL:*LOAD-PRESERVES-OPTIMIZATION-SETTINGS* t)
 
 (setf ccl:*default-file-character-encoding* :utf-8) ; for ccl to load utf-8 file
 (setf ccl:*default-external-format*
@@ -22,4 +22,3 @@
 ;(load "/home/liuzhe/quicklisp/dists/quicklisp/software/slime-20110730-cvs/swank-loader.lisp")
 ;(funcall (read-from-string "swank-loader:init"))
 ;(swank:create-server :port 4005 :style :spawn :dont-close t :coding-system "utf-8-unix")
-
