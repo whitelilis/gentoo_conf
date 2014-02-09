@@ -3,20 +3,21 @@ StrictHostKeyChecking no
 NoHostAuthenticationForLocalhost yes
 UserKnownHostsFile=/dev/null
 LogLevel QUIET
+ServerAliveInterval 5
 
-host gw
-hostname bridge.goso.cn
-
-Host 10.1.*
-ProxyCommand ssh liuzhe@gw netcat %h %p 2>/dev/null
-
-Host 10.100.*
-ProxyCommand ssh liuzhe@gw netcat %h %p 2>/dev/null
-
-Host *.com
-ProxyCommand ssh liuzhe@gw netcat %h %p 2>/dev/null
-
-Host *.cn
-ProxyCommand ssh liuzhe@gw netcat %h %p 2>/dev/null
-#ForwardAgent yes
+#host gw
+#hostname bridge.goso.cn
+#
+#Host 10.1.*
+#ProxyCommand ssh liuzhe@gw netcat %h %p 2>/dev/null
+#
+#Host 10.100.*
+#ProxyCommand ssh liuzhe@gw netcat %h %p 2>/dev/null
+#
+#Host *.com
+#ProxyCommand ssh liuzhe@gw netcat %h %p 2>/dev/null
+#
+#Host *.cn
+#ProxyCommand ssh liuzhe@gw netcat %h %p 2>/dev/null
+##ForwardAgent yes
 
