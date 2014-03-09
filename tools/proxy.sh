@@ -1,6 +1,6 @@
 #!/bin/bash
-lsof=/usr/sbin/lsof
-sshpass=/usr/local/bin/sshpass
+lsof=$(which lsof)
+sshpass=$(which sshpass)
 
 
 function proxy(){
