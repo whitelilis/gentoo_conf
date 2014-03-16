@@ -49,7 +49,7 @@ alias iconv2utf8="iconv -c -f gb18030 -t utf8 "
 alias iconv2gbk="iconv -c -f utf8 -t gb18030 "
 alias updateTables="rake db:migrate VERSION=0 && rake db:migrate"
 alias freemind="sh ~/other_tools/freemind/freemind.sh"
-alias ss="startx"
+
 alias xargs="xargs -I '{}'"
 alias svnbin2txt="svn pd svn:mime-type"
 alias scat="/usr/programming/apache-tomcat-5.5.27/bin/startup.sh"
@@ -172,6 +172,14 @@ function sfeg(){
         git add email
         git commit email -m 'my email'
         git push origin master
+}
+
+function ss(){
+         if [ -e ~/.dropbox-dist/dropboxd ]
+         then
+                ~/.dropbox-dist/dropboxd &
+         fi
+         startx
 }
 
 #set -x
