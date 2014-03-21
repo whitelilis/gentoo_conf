@@ -2,20 +2,41 @@
 lsof=$(which lsof)
 sshpass=$(which sshpass)
 
+local_port=7070
+servers=(162.248.5.237 198.148.115.128 192.228.104.237 198.148.115.128)
+ports=(22 25 110)
+pws=(btssh.com )
+users=(btssh )
+
+function show_now(){
+    ps ux | grep -v grep | grep $local_port
+}
 
 function proxy(){
-    port=7070
-    $lsof -i :$port
+    $lsof -i :$local_port
     if [ $? -eq 0 ] # proxy started
     then
-        exit 0
+        show_now
     else
-        $sshpass -p btssh.com ssh -fnCTN -D $port btssh@192.228.104.237 -p 22 || \
-        $sshpass -p btssh.com ssh -fnCTN -D $port btssh@198.148.115.128 -p 22 || \
-        $sshpass -p btssh.com ssh -fnCTN -D $port btssh@192.228.104.237 -p 25 || \
-        $sshpass -p btssh.com ssh -fnCTN -D $port btssh@198.148.115.128 -p 25
+        for server in ${servers[@]}
+        do
+            for port in ${ports[@]}
+            do
+                for user in ${users[@]}
+                do
+                    for pw in ${pws[@]}
+                    do
+                        $sshpass -p $pw ssh -fnCTN -D $local_port $user@$server -p $port
+                        if [ $? -eq 0 ]
+                        then
+                            show_now
+                            exit 0
+                        fi
+                    done
+                done
+            done
+        done
     fi
-    ps ux | grep -v grep | grep $port
 }
 
 proxy
