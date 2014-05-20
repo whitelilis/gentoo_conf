@@ -3,9 +3,9 @@ lsof=$(which lsof)
 sshpass=$(which sshpass)
 
 local_port=7070
-servers=(162.248.5.237 198.148.115.128 192.228.104.237 198.148.115.128)
-ports=(22 25 110)
-pws=(btssh.com )
+servers=(162.217.249.116)
+ports=(180 22 185)
+pws=(H872f2fsd )
 users=(btssh )
 
 function show_now(){

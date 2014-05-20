@@ -3,7 +3,7 @@ StrictHostKeyChecking no
 NoHostAuthenticationForLocalhost yes
 UserKnownHostsFile=/dev/null
 LogLevel QUIET
-ServerAliveInterval 5
+#ServerAliveInterval 5
 
 #host gw
 #hostname bridge.goso.cn
