@@ -228,8 +228,13 @@ new-repo (){
         cd -
 }
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        . $(brew --prefix)/etc/bash_completion
+which brew > /dev/null 2>&1
+if [ $? -eq 0 ] # brew exist
+then
+        if [ -f $(brew --prefix)/etc/bash_completion ]
+        then
+                . $(brew --prefix)/etc/bash_completion
+        fi
 fi
 
 alias tda='java -jar /home/wizard/src/tda/tda.jar'
