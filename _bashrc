@@ -177,7 +177,11 @@ function sfeg(){
 function ss(){
          if [ -e ~/.dropbox-dist/dropboxd ]
          then
-                ~/.dropbox-dist/dropboxd &
+		ps ux | grep -v grep | grep dropbox > /dev/null 2>&1
+		if [ $? -ne 0 ]
+		then
+                	~/.dropbox-dist/dropboxd &
+		fi
          fi
          startx
 }
@@ -243,3 +247,15 @@ alias R='LC_ALL=C R'
 alias sc="screen -D -RR"
 
 alias ccl_update="ccl -n -e '(rebuild-ccl :update t :full t)'"
+
+wps_prefix="$HOME/my_src/wps-office_8.1.0.3724~b1p2_x86"
+function wps(){
+    $wps_prefix/wps $*
+}
+
+function wpp(){
+    wpp=$wps_prefix/wpp $*
+}
+function et(){
+    $wps_prefix/et $*
+}
