@@ -1,9 +1,14 @@
 "2.0 (created: 2009/03/28 23:48:07)
 set runtimepath=/home/wizard/.vimperator
 
+set tabnumbers
+
 source! ~/.vimperatorrc.local
 "set editor="urxvt -e vim"
 set editor=emacsclient
+
+"search with aol
+set ds=aol
 
 " vim: set ft=vimperator:
 " set go+=mT
@@ -12,5 +17,4 @@ map <BS> <C-b>
 set nextpattern+=^\s*下一页\s*$
 set previouspattern+=\s*上一页\s*$
 
-"set hinttags=//*[@onclick || @onmouseover || @onmousedown || @onmouseup || @oncommand || @class='lk' || @class='s' || @class='lk cs' || @class='msc' || @class='ll'] | //input[not(@type='hidden')] | //a | //area | //iframe | //textarea | //button | //select | //xhtml:*[@onclick || @onmouseover || @onmousedown || @onmouseup || @oncommand || @class='lk' || @class='s'] | //xhtml:input[not(@type='hidden')] | //xhtml:a | //xhtml:area | //xhtml:iframe | //xhtml:textarea | //xhtml:button | //xhtml:select | //tr[@class='rr' || @class='ur']/td[position()=5]/span[@class='p'] 
-
+"set hinttags=//*[@onclick || @onmouseover || @onmousedown || @onmouseup || @oncommand || @class='lk' || @class='s' || @class='lk cs' || @class='msc' || @class='ll'] | //input[not(@type='hidden')] | //a | //area | //iframe | //textarea | //button | //select | //xhtml:*[@onclick || @onmouseover || @onmousedown || @onmouseup || @oncommand || @class='lk' || @class='s'] | //xhtml:input[not(@type='hidden')] | //xhtml:a | //xhtml:area | //xhtml:iframe | //xhtml:textarea | //xhtml:button | //xhtml:select | //tr[@class='rr' || @class='ur']/td[position()=5]/span[@class='p']
