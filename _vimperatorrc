@@ -1,9 +1,9 @@
 "2.0 (created: 2009/03/28 23:48:07)
 set runtimepath=/home/wizard/.vimperator
 
-set tabnumbers
+"set tabnumbers
 
-source! ~/.vimperatorrc.local
+"source! ~/.vimperatorrc.local
 "set editor="urxvt -e vim"
 set editor=emacsclient
 
@@ -11,8 +11,8 @@ set editor=emacsclient
 set ds=aol
 
 " vim: set ft=vimperator:
-" set go+=mT
-map <BS> <C-b>
+set go+=T
+" map <BS> <C-b>
 
 set nextpattern+=^\s*下一页\s*$
 set previouspattern+=\s*上一页\s*$
