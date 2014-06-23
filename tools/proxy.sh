@@ -7,6 +7,7 @@ servers=(162.217.249.116)
 ports=(180 22 185)
 pws=(H872f2fsd )
 users=(btssh )
+try_times=5
 
 function show_now(){
     ps ux | grep -v grep | grep $local_port
@@ -39,4 +40,7 @@ function proxy(){
     fi
 }
 
-proxy
+for f in $(seq $try_times)
+do
+    proxy
+done
