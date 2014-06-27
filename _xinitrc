@@ -17,31 +17,33 @@ exec urxvtd -q -f -o &
 exec fcitx -d &
 # exec wmstickynotes &
 # exec conky
-
+autocutsel -s CLIPBOARD -f
+autocutsel -s PRIMARY -f
 
 xsetroot -cursor_name left_ptr
 xsetroot -name "$(date)"
 
 
-#X_ENV="~/stumpwm_sbcl" 
+#X_ENV="~/stumpwm_sbcl"
 sys=$(uname -a | awk '{print $12}')
 if [ $sys == 'x86_64' ]
 then
-	X_ENV="~/stumpwm64"
+        X_ENV="~/stumpwm64"
 else
-	X_ENV="~/stumpwm"
+        X_ENV="~/stumpwm"
 fi
-#X_ENV="xmonad" 
-#X_ENV="fvwm" 
-#X_ENV="dwm" 
+#X_ENV=/tmp/new_test
+#X_ENV="xmonad"
+#X_ENV="fvwm"
+#X_ENV="dwm"
 
 # Wall Page
 # exec xpmroot ~/.fvwm/back.png
 
-xscreensaver -no-splash & 
+xscreensaver -no-splash &
 
 # dwm ENV
 if [ $X_ENV ]; then
-	export AWT_TOOLKIT=MToolkit # for java gui
-	exec ${X_ENV}
-fi  
+        export AWT_TOOLKIT=MToolkit # for java gui
+        exec ${X_ENV}
+fi
