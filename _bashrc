@@ -177,11 +177,11 @@ function sfeg(){
 function ss(){
          if [ -e ~/.dropbox-dist/dropboxd ]
          then
-		ps ux | grep -v grep | grep dropbox > /dev/null 2>&1
-		if [ $? -ne 0 ]
-		then
-                	~/.dropbox-dist/dropboxd &
-		fi
+             ps ux | grep -v grep | grep dropbox > /dev/null 2>&1
+             if [ $? -ne 0 ]
+             then
+                 ~/.dropbox-dist/dropboxd &
+             fi
          fi
          startx
 }
@@ -205,7 +205,8 @@ HISTTIMEFORMAT='%a %T '
 export PROMPT_COMMEND HISTFILESIZE HISTSIZE HISTTIMEFORMAT
 
 function sc(){
-        screen -D -RR
+        #screen -D -RR
+        tmux a || tmux
 }
 
 for f in ~/.private ~/.work
@@ -244,7 +245,6 @@ fi
 alias tda='java -jar /home/wizard/src/tda/tda.jar'
 alias work='mplayer ~/music/secret_garden/*.mp3'
 alias R='LC_ALL=C R'
-alias sc="screen -D -RR"
 
 alias ccl_update="ccl -n -e '(rebuild-ccl :update t :full t)'"
 
