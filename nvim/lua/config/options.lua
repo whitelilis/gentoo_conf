@@ -5,3 +5,4 @@
 vim.opt.tabstop = 8 -- 一个 TAB 显示为 8 个空格
 vim.opt.shiftwidth = 8 -- 自动缩进使用的空格数
 vim.opt.expandtab = true -- 将 TAB 转换为空格
+vim.opt.makeprg = "ninja -C build"
