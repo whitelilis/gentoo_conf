@@ -1,0 +1,538 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/liuzhe/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git autojump mvn poetry rust)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+
+
+
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export RUST_BACKTRACE=full
+
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/liuzhe/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/liuzhe/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/liuzhe/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/liuzhe/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+function all_proxy(){
+	export ALL_PROXY=socks5://127.0.0.1:1086
+}
+function no_proxy(){
+	export ALL_PROXY=''
+}
+
+conda activate bhdev
+
+export PATH=/Users/liuzhe/.local/bin:$PATH
+
+
+capture() {
+    sudo dtrace -p "$1" -qn '
+        syscall::write*:entry
+        /pid == $target && arg0 == 1/ {
+            printf("%s", copyinstr(arg1, arg2));
+        }
+    '
+}
+
+export ZSH_HIGHLIGHT_MAXLENGTH=60
+
+
+
+############################         java
+
+function jdk8(){
+	export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_301.jdk/Contents/Home
+	export PATH=$JAVA_HOME/bin:$PATH
+}
+
+function jdk16(){
+	export JAVA_HOME=/Users/liuzhe/src/jdk-16.0.2.jdk/Contents/Home
+	export PATH=$JAVA_HOME/bin:$PATH
+}
+
+function jdk17(){
+	export JAVA_HOME=/Users/liuzhe/Library/Java/JavaVirtualMachines/azul-17.0.8/Contents/Home
+	export PATH=$JAVA_HOME/bin:$PATH
+}
+function jdk11(){
+	export JAVA_HOME=/Users/liuzhe/src/jdk-11.0.12.jdk/Contents/Home
+	export PATH=$JAVA_HOME/bin:$PATH
+}
+function jdk14(){
+	export JAVA_HOME=/Users/liuzhe/src/jdk-14.0.2.jdk/Contents/Home
+	export PATH=$JAVA_HOME/bin:$PATH
+}
+
+jdk17
+
+
+export MVN_HOME=/Users/liuzhe/src/apache-maven-3.8.1
+export PATH=$MVN_HOME/bin:$PATH
+export PATH=/Users/liuzhe/src/nvim-macos-arm64/bin:$PATH
+
+
+function ali_source(){
+	pushd /Users/liuzhe/.m2
+	ln -svf s.xml settings.xml
+	popd
+}
+
+function raw_source(){
+	rm /Users/liuzhe/.m2/settings.xml
+}
+
+
+#####################################################################################
+
+
+
+
+########################### slash #############
+function tt() {
+	ssh tx 'tail -3 /home/liuzhe/logs/snapshot.log'
+}
+
+function sc() {
+	tmux a || tmux
+}
+
+
+function mylsp() {
+	export NODE=/opt/homebrew/bin/node
+	export PYRIGHT=/Users/liuzhe/gitlab/pyright/packages/vscode-pyright/dist/server.js
+	export PYTHON_BIN=/Users/liuzhe/miniconda3/envs/torch_env/bin/python
+	export PYTHON_SITE=/Users/liuzhe/miniconda3/envs/torch_env/lib/python3.9/site-packages
+	java -jar /Users/liuzhe/gitlab/java_wrapper/target/lsp-main*  > /tmp/e1 2>&1  &
+}
+
+
+function cleangit() {
+	git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs git branch -d
+	git branch -r --merged | egrep -v "(^\*|master|main|dev)" | sed 's/origin\///' | xargs -n 1 git push origin --delete
+	git remote prune origin
+}
+
+export PATH=~/tools:$PATH
+
+# k8s
+K8S="kubectl"
+NAMESPACE="idp"
+
+function kep(){
+        pod=$1
+        if [ $# -gt 1 ]
+        then
+                container=$2
+                kubectl exec -it $pod -n halo --container $container -- /bin/bash
+        else
+                kubectl exec -it $pod -n halo -- /bin/bash
+        fi
+}
+
+function kgp(){
+        kubectl get pod -n halo -o wide
+}
+
+function krp(){
+        kubectl delete pod $1 -n halo
+}
+
+
+
+function kdp(){
+        kubectl describe pod $1 -n halo
+}
+
+function kgs(){
+        kubectl get svc -n halo -o wide
+}
+
+function kdff() {
+        kubectl delete pods $1 -n halo --grace-period=0 --force
+}
+
+function deployProd(){
+	pushd /Users/liuzhe/gitlab/idp-note
+	bash package.sh && scp target/idp-note-0.0.1-SNAPSHOT.tar.gz  menggu:/opt/md0/halo-nl/note/
+	popd
+}
+
+function deployDev(){
+	pushd /Users/liuzhe/gitlab/idp-note
+	bash package.sh && scp target/idp-note-0.0.1-SNAPSHOT.tar.gz  office:/home/idp/idp-nl/idp-note/
+	popd
+}
+
+function depLsp(){
+	pushd /Users/liuzhe/gitlab/rust-lsp
+	./buildx86.sh $@
+	popd
+}
+
+function x86build(){
+	CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=x86_64-unknown-linux-gnu-gcc cargo build --release --target=x86_64-unknown-linux-gnu
+}
+
+
+
+function stillSync() {
+	rsync -P $1 $2
+	if [ $? -eq 0 ]
+	then
+		exit 0
+	else
+		sleep 1
+		echo "try another"
+		stillSync $1 $2
+	fi
+}
+
+function bigCheck() {
+	cargo bloat --release --crates
+}
+
+# k8s
+# k8s
+
+K8S="kubectl"
+NAMESPACE="idp"
+
+function kep(){
+        pod=$1
+        if [ $# -gt 1 ]
+        then
+                container=$2
+                $K8S exec -it $pod -n $NAMESPACE --container $container -- /bin/sh
+        else
+                $K8S exec -it $pod -n $NAMESPACE -- /bin/sh
+        fi
+}
+
+function kl(){
+	$K8S -n $NAMESPACE logs $@
+}
+
+function kgp(){
+        $K8S get pod -n $NAMESPACE -o wide
+}
+
+function kgs(){
+        $K8S get service -n $NAMESPACE -o wide
+}
+
+function kgi(){
+        $K8S get ingress -n $NAMESPACE -o wide
+}
+
+function kgc(){
+        $K8S get configmap -n $NAMESPACE -o wide
+}
+function kgd(){
+        $K8S get deployment -n $NAMESPACE -o wide
+}
+
+
+function krp(){
+        $K8S delete pod  $1 -n $NAMESPACE 
+}
+
+function krs(){
+        $K8S delete service  $1 -n $NAMESPACE 
+}
+
+function kri(){
+        $K8S delete ingress  $1 -n $NAMESPACE
+}
+
+function krc(){
+        $K8S delete configmap  $1 -n $NAMESPACE
+}
+function krd(){
+        $K8S delete deployment  $1 -n $NAMESPACE
+}
+
+
+function kdp(){
+        $K8S describe pod  $1 -n $NAMESPACE 
+}
+
+function kds(){
+        $K8S describe service  $1 -n $NAMESPACE 
+}
+
+function kdi(){
+        $K8S describe ingress  $1 -n $NAMESPACE
+}
+
+function kdc(){
+        $K8S describe configmap  $1 -n $NAMESPACE
+}
+function kdd(){
+        $K8S describe deployment  $1 -n $NAMESPACE
+}
+
+
+function krdall(){
+        for f in $(kgd | awk '{print $1}' | grep $1); do krd $f; done
+}
+
+
+function kdff() {
+        $K8S delete pods $1 -n $NAMESPACE --grace-period=0 --force
+}
+
+
+function kaf() {
+       $K8S apply -f $1
+}
+function kdf() {
+       $K8S delete -f $1
+}
+function krf() {
+       $K8S replace -f $1
+}
+
+function change_ns(){
+        export NAMESPACE=$1
+	kubectl config set-context --current --namespace=$NAMESPACE
+}
+
+function kl {
+	$K8S -n $NAMESPACE logs $@
+}
+
+
+function hhl(){
+	helm --namespace $NAMESPACE list $@
+}
+
+function hhi(){
+	helm --namespace $NAMESPACE install $@
+}
+function hhu(){
+	helm --namespace $NAMESPACE uninstall $@
+}
+
+function hhg(){
+	helm --namespace $NAMESPACE upgrade $@
+}
+
+function htest() {
+	helm --namespace $NAMESPACE install htest $@ --debug --dry-run
+}
+
+function stat_git(){
+    git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done
+}
+
+function x86build() {
+	CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=x86_64-unknown-linux-gnu-gcc cargo build --release --target=x86_64-unknown-linux-gnu
+}
+
+function idp_log_debug() {
+	curl http://idp.baihai.co/a/api/v2/idp-note-rs/inner/change_log\?level\=info,sqlx\=warn,note_storage\=debug
+}
+
+function week_chrome() {
+	/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --ignore-certificate-errors --allow-running-insecure-content
+}
+
+function cp_tick(){
+	scp tx2:/root/cpp/study/clp2/build/$1 ./
+}
+
+
+function g_imc(){
+	cd /Users/liuzhe/work/baihai/营销大模型
+}
+
+
+
+export GO111MODULE=on
+export GOPROXY=https://goproxy.cn,direct
+
+export OPENAI_API_BASE=http://localhost:8888/v1
+export OPENAI_API_KEY=EMPTY
+
+
+
+
+function sw_files(){
+	cd /Users/liuzhe/work/baihai/顺网/提供文档
+}
+
+
+function ssh() {
+	kitten ssh $@
+}
+
+
+# must at last
+
+#source /Users/liuzhe/z_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# JINA_CLI_BEGIN
+
+## autocomplete
+if [[ ! -o interactive ]]; then
+    return
+fi
+
+compctl -K _jina jina
+
+_jina() {
+  local words completions
+  read -cA words
+
+  if [ "${#words}" -eq 2 ]; then
+    completions="$(jina commands)"
+  else
+    completions="$(jina completions ${words[2,-2]})"
+  fi
+
+  reply=(${(ps:
+:)completions})
+}
+
+# session-wise fix
+ulimit -n 4096
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+
+function vi(){
+	nvim $@
+}
+
+
+#export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+
+# >>> Added by Spyder >>>
+alias uninstall-spyder=/Users/liuzhe/Library/spyder-6/uninstall-spyder.sh
+# <<< Added by Spyder <<<
+#export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
