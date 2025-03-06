@@ -211,7 +211,7 @@ function tt() {
 }
 
 function sc() {
-	tmux a || tmux
+        tmux a -t ${1:-lz} || tmux -f ~/tmux.lz new -s ${1:-lz}
 }
 
 
@@ -471,6 +471,7 @@ export GOPROXY=https://goproxy.cn,direct
 
 export OPENAI_API_BASE=http://localhost:8888/v1
 export OPENAI_API_KEY=EMPTY
+export COPYFILE_DISABLE=1 # avoid tar generate ._ file
 
 
 
@@ -480,10 +481,9 @@ function sw_files(){
 }
 
 
-function ssh() {
+function s() {
 	kitten ssh $@
 }
-
 
 # must at last
 

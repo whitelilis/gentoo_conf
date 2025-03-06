@@ -1,0 +1,12 @@
+unbind C-b
+set -g prefix C-z
+bind C-z last-window
+bind-key z send-prefix
+
+bind-key - split-window -v
+bind-key \\ split-window -h
+
+bind-key k selectp -U # 选择上窗格
+bind-key j selectp -D # 选择下窗格
+bind-key h selectp -L # 选择左窗格
+bind-key l selectp -R # 选择右窗格
