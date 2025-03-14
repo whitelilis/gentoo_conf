@@ -225,8 +225,8 @@ function mylsp() {
 
 
 function cleangit() {
-	git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs git branch -d
-	git branch -r --merged | egrep -v "(^\*|master|main|dev)" | sed 's/origin\///' | xargs -n 1 git push origin --delete
+	git branch --merged | egrep -v "(^\*|master|main|dev|kingsoft)" | xargs git branch -d
+	git branch -r --merged | egrep -v "(^\*|master|main|dev|kingsoft)" | sed 's/origin\///' | xargs -n 1 git push origin --delete
 	git remote prune origin
 }
 
